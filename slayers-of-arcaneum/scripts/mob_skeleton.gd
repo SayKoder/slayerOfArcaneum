@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+	
+
 # Fonction appelée à chaque frame physique
 func _physics_process(_delta):
 	# Calculer la direction vers le joueur
@@ -31,11 +33,10 @@ func play_run():
 # Fonction pour jouer l'animation quand le mob est blessé
 func play_hurt():
 	animated_sprite.play("hurt")
-	
-	
 
 
-func _on_hurt_box_hurt(damage):
-	hp -= damage
-	if hp <= 0:
+func take_damage():
+	hp -= 1
+	
+	if hp == 0:
 		queue_free()

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 150
-var hp = 100
+signal health_depleted
+var hp = 100.0
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -20,6 +21,14 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+	
+	const DAMAGE_RATE = 5.0
+	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	if overlapping_mobs.size() > 0:
+		hp -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		%ProgressBar.value = hp
+		if hp <= 0.0:
+			health_depleted.emit()
 
 	# Flip the sprite based on movement direction
 	if velocity.x > 0:
@@ -44,9 +53,3 @@ func _process(delta):
 	if Input.is_action_pressed("quit_game"):
 		print("appuie sur Quit (Touche B8) effectue")
 		JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
-
-
-
-func _on_hurt_box_hurt(damage):
-	hp -= damage
-	print (hp)

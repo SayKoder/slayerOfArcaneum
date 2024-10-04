@@ -1,10 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://dvqjk07c32tn"]
+[gd_scene load_steps=37 format=3 uid="uid://dvqjk07c32tn"]
 
 [ext_resource type="Texture2D" uid="uid://db57i3x65rl7w" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_4in2p"]
 [ext_resource type="Script" path="res://scripts/mob_skeleton.gd" id="1_4s2fc"]
-[ext_resource type="PackedScene" uid="uid://cw8pqd4b6accg" path="res://utility/hurt_box.tscn" id="4_uko7y"]
 [ext_resource type="Texture2D" uid="uid://fds55u8smeqy" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="5_au2qp"]
-[ext_resource type="PackedScene" uid="uid://deydwedwpwvui" path="res://utility/hit_box.tscn" id="5_ryti7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82256"]
 atlas = ExtResource("1_4in2p")
@@ -251,14 +249,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrljm"]
-size = Vector2(31, 55)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g8qt"]
-size = Vector2(21, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_njiqy"]
-size = Vector2(15, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0bj"]
+size = Vector2(21, 37)
 
 [node name="ennemy_skeleton_weak" type="CharacterBody2D"]
 script = ExtResource("1_4s2fc")
@@ -269,29 +261,6 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hfnir")
 animation = &"attack"
 
-[node name="HurtBox" parent="." instance=ExtResource("4_uko7y")]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(-13.5, -2.5)
-shape = SubResource("RectangleShape2D_wrljm")
-
-[node name="HitBox" parent="." instance=ExtResource("5_ryti7")]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-12.5, -2)
-shape = SubResource("RectangleShape2D_5g8qt")
-debug_color = Color(0.562736, 0, 0.157416, 0.42)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10.5, -2)
-shape = SubResource("RectangleShape2D_njiqy")
-debug_color = Color(0.639764, 0.525003, 0, 0.42)
-
-[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
-
-[editable path="HurtBox"]
-[editable path="HitBox"]
+position = Vector2(-11, -4)
+shape = SubResource("RectangleShape2D_qc0bj")

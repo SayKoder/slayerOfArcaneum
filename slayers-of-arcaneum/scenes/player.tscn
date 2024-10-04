@@ -275,11 +275,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eets7"]
-radius = 19.0
-height = 90.0
+radius = 17.0
+height = 76.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggsbd"]
+radius = 20.0
+height = 88.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mfjg"]
-bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+bg_color = Color(0.217323, 0.211535, 0.203633, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -292,22 +296,29 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p35vw"]
-size = Vector2(20, 74)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_brnp5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 1)
 sprite_frames = SubResource("SpriteFrames_l7snc")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 2)
+position = Vector2(-11, 6)
 shape = SubResource("CapsuleShape2D_eets7")
 disabled = true
+
+[node name="HurtBox" parent="." instance=ExtResource("7_mrusb")]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(-11, 7)
+shape = SubResource("CapsuleShape2D_ggsbd")
+debug_color = Color(0.992794, 0, 0.246992, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -319,14 +330,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_8mfjg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8fwtr")
 value = 100.0
 show_percentage = false
-
-[node name="HurtBox" parent="." instance=ExtResource("7_mrusb")]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(-10, 3)
-shape = SubResource("RectangleShape2D_p35vw")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 
