@@ -258,7 +258,7 @@ size = Vector2(31, 55)
 size = Vector2(21, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njiqy"]
-size = Vector2(10, 48)
+size = Vector2(15, 48)
 
 [node name="ennemy_skeleton_weak" type="CharacterBody2D"]
 script = ExtResource("1_4s2fc")
@@ -268,7 +268,6 @@ position = Vector2(10, -15)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hfnir")
 animation = &"attack"
-frame_progress = 0.0617263
 
 [node name="HurtBox" parent="." instance=ExtResource("4_uko7y")]
 collision_layer = 4
@@ -288,7 +287,7 @@ shape = SubResource("RectangleShape2D_5g8qt")
 debug_color = Color(0.562736, 0, 0.157416, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -2)
+position = Vector2(-10.5, -2)
 shape = SubResource("RectangleShape2D_njiqy")
 debug_color = Color(0.639764, 0.525003, 0, 0.42)
 

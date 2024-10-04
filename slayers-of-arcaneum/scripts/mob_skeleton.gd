@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@onready var player: CharacterBody2D = $"../Player"
+@onready var player = get_tree().get_first_node_in_group("player")
 @export var speed = 100
 @export var hp = 10
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # Fonction appelée à chaque frame physique
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Calculer la direction vers le joueur
 	var direction = global_position.direction_to(player.global_position)
 	
