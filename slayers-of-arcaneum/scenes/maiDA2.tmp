@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://f0m7vr7tugkn"]
+[gd_scene load_steps=25 format=4 uid="uid://f0m7vr7tugkn"]
 
 [ext_resource type="Texture2D" uid="uid://s3i8pp43rmbj" path="res://assets/Texture/TX Tileset Grass.png" id="1_drula"]
 [ext_resource type="Texture2D" uid="uid://elpv6ool53no" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Stone Ground.png" id="2_2hw0d"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ci70x0xktccsw" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Wall.png" id="7_6fdnc"]
 [ext_resource type="Texture2D" uid="uid://biihu4c5e7850" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow Plant.png" id="8_6v7uh"]
 [ext_resource type="Texture2D" uid="uid://cc3san7ckvr5k" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow.png" id="9_agcsh"]
+[ext_resource type="PackedScene" uid="uid://fj8h3vv66d4w" path="res://assets/player_2.tscn" id="12_f2iw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivshp"]
 texture = ExtResource("1_drula")
@@ -1760,12 +1761,16 @@ tile_set = SubResource("TileSet_tqer8")
 [node name="Shadows" type="TileMapLayer" parent="World_tileset/Props"]
 tile_set = SubResource("TileSet_l12iy")
 
+[node name="Player" parent="." instance=ExtResource("2_p1tn0")]
+visible = false
+position = Vector2(8, -13)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-7, 13)
+position_smoothing_enabled = true
+
 [node name="ennemy_skeleton_weak" parent="." instance=ExtResource("3_g1gh0")]
 position = Vector2(-181, -14)
 
-[node name="Player" parent="." instance=ExtResource("2_p1tn0")]
-position = Vector2(6, -25)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-5, 25)
-position_smoothing_enabled = true
+[node name="Player2" parent="." instance=ExtResource("12_f2iw0")]
+position = Vector2(2, -22)

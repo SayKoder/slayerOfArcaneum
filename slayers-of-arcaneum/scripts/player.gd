@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-@export var speed = 150
+@onready var sprite = $Sprite2D
+@export var speed: float = 150.0
+@onready var animations = $AnimationPlayer
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 signal health_depleted
-var hp = 150.0  # Initialisation des points de vie.
+var hp = 50  # Initialisation des points de vie.
 
-@onready var animated_sprite = $AnimatedSprite2D
 @onready var end_menu = $"../EndMenu"  # Assurez-vous que ce chemin correspond à votre menu de fin.
 var is_attacking = false
 var quit_delay = 2.0  # Délai avant de quitter le jeu en secondes
@@ -13,18 +14,21 @@ var inactivity_delay = 10.0  # Délai d'inactivité en secondes
 var inactivity_timer = 0.0  # Compteur d'inactivité
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var velocity = Vector2.ZERO # Le vecteur de mouvement du joueur.
+var last_direction = "_down" # Par défaut, le personnage regarde vers le bas
 
-	# Autoriser les mouvements même si le personnage attaque
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+func handleInput(delta):
+	var moveDirection = Input.get_vector("move_left", "move_right", "move_up","move_down")
+	velocity = moveDirection * speed
+
+	# Enregistrer la dernière direction si le personnage bouge
+	if velocity.x < 0:
+		last_direction = "_left"
+	elif velocity.x > 0:
+		last_direction = "_right"
+	elif velocity.y < 0:
+		last_direction = "_up"
+	elif velocity.y > 0:
+		last_direction = "_down"
 
 	# Réinitialiser le compteur d'inactivité si une touche est pressée
 	if velocity != Vector2.ZERO:
@@ -47,28 +51,9 @@ func _process(delta):
 			# Désactive les contrôles du joueur
 			set_process(false)
 			# Arrête toutes les animations
-			animated_sprite.stop()
+			animations.stop()
 			# Optionnel: Afficher un écran de Game Over ou réinitialiser le jeu
 			end_menu.visible = true
-
-	# Flip the sprite based on movement direction
-	if velocity.x > 0:
-		animated_sprite.flip_h = false
-	elif velocity.x < 0:
-		animated_sprite.flip_h = true
-
-	# Si on n'est pas en train d'attaquer, jouer les animations de déplacement
-	if not is_attacking:
-		if velocity.length() == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("running")
-
-	# Normaliser la vitesse si le personnage se déplace
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-
-	position += velocity * delta
 
 	# Gestion du délai avant de quitter le jeu
 	if Input.is_action_pressed("QuitJeu"):
@@ -83,6 +68,30 @@ func _process(delta):
 		projectile_instance.target = get_closest_mob()
 		owner.add_child(projectile_instance)
 
+func updateAnimation():
+	if velocity == Vector2.ZERO:  # Si la vitesse est à 0, jouer l'animation d'attente (idle)
+		animations.play("idle" + last_direction)
+	else:
+		var direction = last_direction
+		if velocity.x < 0:
+			direction = "_left"
+			sprite.flip_h = false
+		elif velocity.x > 0:
+			direction = "_right"
+			sprite.flip_h = true
+		elif velocity.y < 0:
+			direction = "_up"
+		elif velocity.y > 0:
+			direction = "_down"
+		
+		animations.play("run" + direction)
+		
+
+func _physics_process(delta):
+	handleInput(delta)
+	move_and_slide()
+	updateAnimation()
+
 # Fonction appelée lorsque la santé est épuisée
 func _on_health_depleted():
 	print("Game Over")
@@ -91,7 +100,7 @@ func _on_health_depleted():
 	# Désactiver les contrôles du joueur
 	set_process(false)
 	# Arrêter toutes les animations
-	animated_sprite.stop()
+	animations.stop()
 
 # Fonction pour obtenir le mob le plus proche
 func get_closest_mob():
