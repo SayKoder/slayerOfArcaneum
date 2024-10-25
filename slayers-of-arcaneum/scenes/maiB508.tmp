@@ -1760,12 +1760,12 @@ tile_set = SubResource("TileSet_tqer8")
 [node name="Shadows" type="TileMapLayer" parent="World_tileset/Props"]
 tile_set = SubResource("TileSet_l12iy")
 
-[node name="ennemy_skeleton_weak" parent="." instance=ExtResource("3_g1gh0")]
-position = Vector2(-181, -14)
-
 [node name="Player" parent="." instance=ExtResource("2_p1tn0")]
-position = Vector2(6, -25)
+position = Vector2(8, -13)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-5, 25)
+position = Vector2(-7, 13)
 position_smoothing_enabled = true
+
+[node name="ennemy_skeleton_weak" parent="." instance=ExtResource("3_g1gh0")]
+position = Vector2(-181, -14)
