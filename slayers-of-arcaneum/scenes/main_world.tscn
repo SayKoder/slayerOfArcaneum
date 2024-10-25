@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://xmhyidj2nvsq" path="res://scenes/Gommery_boss.tscn" id="12_gxhfw"]
 [ext_resource type="PackedScene" uid="uid://qay3ju6u1iln" path="res://scenes/shadow.tscn" id="13_2oah2"]
 [ext_resource type="PackedScene" uid="uid://ck3vwa038omyp" path="res://scripts/end_menu.tscn" id="14_o6v8m"]
-[ext_resource type="PackedScene" uid="uid://b5tbfusxoegjx" path="res://scenes/bullet.tscn" id="15_0q34a"]
+[ext_resource type="PackedScene" uid="uid://cwf4dfkgxrpob" path="res://scenes/projectile.tscn" id="15_albqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivshp"]
 texture = ExtResource("1_drula")
@@ -1771,6 +1771,9 @@ position = Vector2(7, -13)
 position = Vector2(-7, 13)
 position_smoothing_enabled = true
 
+[node name="projectile" parent="Player" instance=ExtResource("15_albqc")]
+position = Vector2(-7, 13)
+
 [node name="ennemy_skeleton_weak" parent="." instance=ExtResource("3_g1gh0")]
 position = Vector2(-331, -44)
 collision_layer = 2
@@ -1792,5 +1795,3 @@ offset_top = -207.0
 offset_right = -348.0
 offset_bottom = -207.0
 metadata/_edit_use_anchors_ = true
-
-[node name="Projectile_scene" parent="." instance=ExtResource("15_0q34a")]

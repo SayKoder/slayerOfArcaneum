@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 150
-@onready var projectile_scene = $"../Projectile_scene"
+@onready var projectile_scene = preload("res://scenes/projectile.tscn")
 signal health_depleted
 var hp = 150.0  # Initialisation des points de vie.
 
@@ -77,8 +77,11 @@ func _process(delta):
 		JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
 
 	# Lancer un projectile
-	if Input.is_action_pressed("fire"):
-		launch_projectile()
+	if Input.is_action_just_pressed("fire"):
+		var projectile_instance = projectile_scene.instantiate()
+		projectile_instance.global_position = global_position
+		projectile_instance.target = get_closest_mob()
+		owner.add_child(projectile_instance)
 
 # Fonction appelée lorsque la santé est épuisée
 func _on_health_depleted():
@@ -90,22 +93,16 @@ func _on_health_depleted():
 	# Arrêter toutes les animations
 	animated_sprite.stop()
 
-func launch_projectile():
-	if projectile_scene:
-		var projectile = projectile_scene.instantiate() as CharacterBody2D
-		projectile.global_position = global_position
-		projectile.target = get_closest_mob()
-		get_parent().add_child(projectile)
-	else:
-		print("Error: projectile_scene is not assigned")
-
+# Fonction pour obtenir le mob le plus proche
 func get_closest_mob():
-	var mobs = get_tree().get_nodes_in_group("mobs")
 	var closest_mob = null
 	var closest_distance = INF
+	var mobs = get_tree().get_nodes_in_group("mobs")  # Assurez-vous que vos mobs sont dans un groupe nommé "mobs"
+
 	for mob in mobs:
 		var distance = global_position.distance_to(mob.global_position)
 		if distance < closest_distance:
 			closest_distance = distance
 			closest_mob = mob
+
 	return closest_mob

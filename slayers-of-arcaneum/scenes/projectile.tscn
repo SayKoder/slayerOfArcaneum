@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwf4dfkgxrpob"]
+
+[ext_resource type="Texture2D" uid="uid://dsb7mbjjc8jjc" path="res://assets/Sans_titre-2.png" id="1_wcrs6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cryv8"]
+radius = 16.0
+
+[node name="projectile" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.00001, -0.999992)
+scale = Vector2(0.468421, 0.489474)
+texture = ExtResource("1_wcrs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -5)
+shape = SubResource("CircleShape2D_cryv8")
