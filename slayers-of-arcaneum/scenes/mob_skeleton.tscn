@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://dvqjk07c32tn"]
+[gd_scene load_steps=39 format=3 uid="uid://dvqjk07c32tn"]
 
 [ext_resource type="Texture2D" uid="uid://db57i3x65rl7w" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_4in2p"]
 [ext_resource type="Script" path="res://scripts/mob_skeleton.gd" id="1_4s2fc"]
+[ext_resource type="PackedScene" uid="uid://cw8pqd4b6accg" path="res://utility/hurt_box.tscn" id="4_tccot"]
 [ext_resource type="Texture2D" uid="uid://fds55u8smeqy" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="5_au2qp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82256"]
@@ -252,6 +253,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0bj"]
 size = Vector2(21, 37)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atgbr"]
+radius = 20.0
+height = 88.0
+
 [node name="ennemy_skeleton_weak" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 16
@@ -266,3 +271,15 @@ animation = &"attack"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-11, -4)
 shape = SubResource("RectangleShape2D_qc0bj")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_tccot")]
+unique_name_in_owner = true
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(-11, 7)
+shape = SubResource("CapsuleShape2D_atgbr")
+debug_color = Color(0.992794, 0, 0.246992, 0.42)
+
+[editable path="HurtBox"]

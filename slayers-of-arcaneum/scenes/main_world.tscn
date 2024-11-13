@@ -1787,6 +1787,12 @@ position = Vector2(-363, 268)
 collision_layer = 4
 collision_mask = 4
 
+[node name="projectile" parent="." instance=ExtResource("15_albqc")]
+visible = false
+light_mask = 8
+visibility_layer = 8
+script = ExtResource("12_ao5pp")
+
 [node name="EndMenu" parent="." instance=ExtResource("14_o6v8m")]
 visible = false
 offset_left = -348.0
@@ -1794,11 +1800,3 @@ offset_top = -207.0
 offset_right = -348.0
 offset_bottom = -207.0
 metadata/_edit_use_anchors_ = true
-
-[node name="projectile" parent="." instance=ExtResource("15_albqc")]
-visible = false
-light_mask = 265
-visibility_layer = 265
-collision_layer = 136
-collision_mask = 136
-script = ExtResource("12_ao5pp")

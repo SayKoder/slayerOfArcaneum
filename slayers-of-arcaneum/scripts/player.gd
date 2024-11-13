@@ -41,7 +41,7 @@ func _process(delta):
 		await get_tree().create_timer(quit_delay).timeout
 		JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
 
-	const DAMAGE_RATE = 5.0
+	const DAMAGE_RATE = 25.0
 	var overlapping_mobs = $HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
 		hp -= DAMAGE_RATE * overlapping_mobs.size() * delta
