@@ -3,13 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dsb7mbjjc8jjc" path="res://assets/Sans_titre-2.png" id="1_wcrs6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cryv8"]
-radius = 16.0
+radius = 8.06226
 
 [node name="projectile" type="Area2D"]
+collision_layer = 32
+collision_mask = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.00001, -0.999992)
-scale = Vector2(0.468421, 0.489474)
+position = Vector2(-3, -4)
+scale = Vector2(0.223684, 0.223684)
 texture = ExtResource("1_wcrs6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

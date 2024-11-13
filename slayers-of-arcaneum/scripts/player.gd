@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 150
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
+@onready var shooting_point = $ShootingPoint
+@onready var hurt_box = $HurtBox
 signal health_depleted
 var hp = 150.0  # Initialisation des points de vie.
 
@@ -12,22 +14,24 @@ var quit_delay = 2.0  # Délai avant de quitter le jeu en secondes
 var inactivity_delay = 10.0  # Délai d'inactivité en secondes
 var inactivity_timer = 0.0  # Compteur d'inactivité
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	hurt_box.connect("hurt", Callable(self, "_on_HurtBox_hurt"))
+
 func _process(delta):
-	var velocity = Vector2.ZERO # Le vecteur de mouvement du joueur.
+	var move_velocity = Vector2.ZERO # Le vecteur de mouvement du joueur.
 
 	# Autoriser les mouvements même si le personnage attaque
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		move_velocity.x += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		move_velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		move_velocity.y += 1
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+		move_velocity.y -= 1
 
 	# Réinitialiser le compteur d'inactivité si une touche est pressée
-	if velocity != Vector2.ZERO:
+	if move_velocity != Vector2.ZERO:
 		inactivity_timer = 0.0
 	else:
 		inactivity_timer += delta
@@ -52,23 +56,23 @@ func _process(delta):
 			end_menu.visible = true
 
 	# Flip the sprite based on movement direction
-	if velocity.x > 0:
+	if move_velocity.x > 0:
 		animated_sprite.flip_h = false
-	elif velocity.x < 0:
+	elif move_velocity.x < 0:
 		animated_sprite.flip_h = true
 
 	# Si on n'est pas en train d'attaquer, jouer les animations de déplacement
 	if not is_attacking:
-		if velocity.length() == 0:
+		if move_velocity.length() == 0:
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("running")
 
 	# Normaliser la vitesse si le personnage se déplace
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+	if move_velocity.length() > 0:
+		move_velocity = move_velocity.normalized() * speed
 
-	position += velocity * delta
+	position += move_velocity * delta
 
 	# Gestion du délai avant de quitter le jeu
 	if Input.is_action_pressed("QuitJeu"):
@@ -79,8 +83,10 @@ func _process(delta):
 	# Lancer un projectile
 	if Input.is_action_just_pressed("fire"):
 		var projectile_instance = projectile_scene.instantiate()
-		projectile_instance.global_position = global_position
-		projectile_instance.target = get_closest_mob()
+		projectile_instance.global_position = shooting_point.global_position
+		var closest_mob = get_closest_mob()
+		if closest_mob != null:
+			projectile_instance.target = closest_mob
 		owner.add_child(projectile_instance)
 
 # Fonction appelée lorsque la santé est épuisée
@@ -106,3 +112,12 @@ func get_closest_mob():
 			closest_mob = mob
 
 	return closest_mob
+
+func _on_HurtBox_hurt(damage, angle, knockback):
+	hp -= damage
+	$ProgressBar.value = hp
+	if hp <= 0.0:
+		health_depleted.emit()
+		set_process(false)
+		animated_sprite.stop()
+		end_menu.visible = true
