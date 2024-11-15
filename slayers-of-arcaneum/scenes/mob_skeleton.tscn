@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://db57i3x65rl7w" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_4in2p"]
 [ext_resource type="Script" path="res://scripts/mob_skeleton.gd" id="1_4s2fc"]
-[ext_resource type="PackedScene" uid="uid://cw8pqd4b6accg" path="res://utility/hurt_box.tscn" id="4_tccot"]
 [ext_resource type="Texture2D" uid="uid://fds55u8smeqy" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="5_au2qp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82256"]
@@ -251,15 +250,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0bj"]
-size = Vector2(21, 37)
+size = Vector2(32, 52)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atgbr"]
-radius = 20.0
-height = 88.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gv2pk"]
+bg_color = Color(0.217323, 0.211535, 0.203633, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
-[node name="ennemy_skeleton_weak" type="CharacterBody2D"]
-collision_layer = 16
-collision_mask = 16
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0t1p"]
+bg_color = Color(0.611255, 0, 0.166287, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ennemy_skeleton_weak" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_4s2fc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -269,17 +278,17 @@ sprite_frames = SubResource("SpriteFrames_hfnir")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, -4)
+position = Vector2(-13, -3)
 shape = SubResource("RectangleShape2D_qc0bj")
 
-[node name="HurtBox" parent="." instance=ExtResource("4_tccot")]
+[node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-collision_layer = 256
-collision_mask = 256
-
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(-11, 7)
-shape = SubResource("CapsuleShape2D_atgbr")
-debug_color = Color(0.992794, 0, 0.246992, 0.42)
-
-[editable path="HurtBox"]
+offset_left = -141.0
+offset_top = -80.0
+offset_right = 112.0
+offset_bottom = -53.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gv2pk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t0t1p")
+max_value = 10.0
+value = 10.0
+show_percentage = false

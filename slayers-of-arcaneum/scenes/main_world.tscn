@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=4 uid="uid://f0m7vr7tugkn"]
+[gd_scene load_steps=28 format=4 uid="uid://f0m7vr7tugkn"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_02drp"]
 [ext_resource type="Texture2D" uid="uid://s3i8pp43rmbj" path="res://assets/Texture/TX Tileset Grass.png" id="1_drula"]
 [ext_resource type="Texture2D" uid="uid://elpv6ool53no" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Stone Ground.png" id="2_2hw0d"]
 [ext_resource type="PackedScene" uid="uid://5yqjhkax0vga" path="res://scenes/player.tscn" id="2_p1tn0"]
@@ -11,11 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://ci70x0xktccsw" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Wall.png" id="7_6fdnc"]
 [ext_resource type="Texture2D" uid="uid://biihu4c5e7850" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow Plant.png" id="8_6v7uh"]
 [ext_resource type="Texture2D" uid="uid://cc3san7ckvr5k" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow.png" id="9_agcsh"]
-[ext_resource type="Script" path="res://scripts/projectile.gd" id="12_ao5pp"]
 [ext_resource type="PackedScene" uid="uid://xmhyidj2nvsq" path="res://scenes/Gommery_boss.tscn" id="12_gxhfw"]
 [ext_resource type="PackedScene" uid="uid://qay3ju6u1iln" path="res://scenes/shadow.tscn" id="13_2oah2"]
 [ext_resource type="PackedScene" uid="uid://ck3vwa038omyp" path="res://scripts/end_menu.tscn" id="14_o6v8m"]
-[ext_resource type="PackedScene" uid="uid://cwf4dfkgxrpob" path="res://scenes/projectile.tscn" id="15_albqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivshp"]
 texture = ExtResource("1_drula")
@@ -1752,6 +1751,7 @@ sources/0 = SubResource("TileSetAtlasSource_em5lj")
 sources/1 = SubResource("TileSetAtlasSource_h8ore")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_02drp")
 
 [node name="World_tileset" type="TileMapLayer" parent="."]
 position = Vector2(1, -1)
@@ -1767,6 +1767,7 @@ tile_set = SubResource("TileSet_l12iy")
 
 [node name="Player" parent="." instance=ExtResource("2_p1tn0")]
 position = Vector2(7, -13)
+collision_layer = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-7, 13)
@@ -1775,28 +1776,27 @@ position_smoothing_enabled = true
 [node name="ShootingPoint" type="Marker2D" parent="Player"]
 position = Vector2(-29, -33)
 
+[node name="EndMenu" parent="Player" instance=ExtResource("14_o6v8m")]
+visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="Player"]
+offset_left = 171.0
+offset_top = -161.0
+offset_right = 211.0
+offset_bottom = -138.0
+
 [node name="ennemy_skeleton_weak" parent="." instance=ExtResource("3_g1gh0")]
 position = Vector2(-331, -44)
+collision_mask = 3
 motion_mode = 1
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("12_gxhfw")]
 position = Vector2(-476, 131)
+collision_layer = 0
+collision_mask = 0
 
 [node name="Shadow" parent="." instance=ExtResource("13_2oah2")]
-position = Vector2(-363, 268)
+position = Vector2(-334, 229)
 collision_layer = 4
 collision_mask = 4
-
-[node name="projectile" parent="." instance=ExtResource("15_albqc")]
-visible = false
-light_mask = 8
-visibility_layer = 8
-script = ExtResource("12_ao5pp")
-
-[node name="EndMenu" parent="." instance=ExtResource("14_o6v8m")]
-visible = false
-offset_left = -348.0
-offset_top = -207.0
-offset_right = -348.0
-offset_bottom = -207.0
-metadata/_edit_use_anchors_ = true

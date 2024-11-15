@@ -4,21 +4,13 @@
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = 7.0
-offset_right = -3.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_ko4ur")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 41.0
+offset_left = -516.0
+offset_top = -354.0
 offset_right = 449.0
 offset_bottom = 449.0
 

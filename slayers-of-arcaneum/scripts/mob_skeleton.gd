@@ -2,19 +2,18 @@ extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var speed = 100
-@onready var hurt_box: Area2D = $HurtBox
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var max_hp = 10
+@export var max_hp = 5
 var hp
+
+@onready var health_bar: ProgressBar = $ProgressBar  # Reference to the ProgressBar node
 
 signal died
 
 func _ready() -> void:
 	hp = max_hp
-	if hurt_box:
-		hurt_box.connect("hurt", Callable(self, "_on_HurtBox_hurt"))
-	else:
-		print("Error: HurtBox node not found")
+	health_bar.max_value = max_hp  # Set the max value of the health bar
+	health_bar.value = hp  # Initialize the health bar value
 	connect("died", Callable(self, "_on_Died"))
 
 func _physics_process(_delta):
@@ -33,12 +32,10 @@ func play_run():
 func play_hurt():
 	animated_sprite.play("hurt")
 
-func _on_HurtBox_hurt(damage, angle, knockback):
-	take_damage(damage)
-	play_hurt()
-
 func take_damage(damage):
 	hp -= damage
+	health_bar.value = hp  # Update the health bar value
+	print("Damage taken: ", damage, " | Remaining HP: ", hp)
 	if hp <= 0:
 		emit_signal("died")
 		die()

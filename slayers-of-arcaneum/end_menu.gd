@@ -9,11 +9,11 @@ func _ready():
 	# Connecte les signaux des boutons
 	Restart.pressed.connect(on_restart_pressed)
 	Quit.pressed.connect(on_quit_pressed)
-	
+
 	# Définit le focus initial sur le bouton Restart
 	Restart.grab_focus()
-	
-	# Assurez-vous que les boutons acceptent le focus
+
+# Assurez-vous que les boutons acceptent le focus
 
 func _process(delta):
 	# Permet de gérer les entrées de la manette ou du clavier
@@ -34,16 +34,16 @@ func _activate_button() -> void:
 # Fonction pour passer au bouton suivant
 func _focus_next_button() -> void:
 	if Restart.has_focus():
-		Quit.request_focus()
+		Quit.grab_focus()
 	elif Quit.has_focus():
-		Restart.request_focus()
+		Restart.grab_focus()
 
 # Fonction pour passer au bouton précédent
 func _focus_previous_button() -> void:
 	if Restart.has_focus():
-		Quit.request_focus()
+		Quit.grab_focus()
 	elif Quit.has_focus():
-		Restart.request_focus()
+		Restart.grab_focus()
 
 # Fonction appelée lorsque le bouton Restart est pressé
 func on_restart_pressed() -> void:
