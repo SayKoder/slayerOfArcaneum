@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 150
 @export var fire_rate = 0.5  # Minimum delay between each projectile in seconds
+@export var projectile_damage = 10  # Damage of each projectile
+@export var projectile_speed = 300  # Speed of each projectile
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shooting_point = $ShootingPoint
 @onready var hurt_box = $HurtBox
@@ -94,6 +96,8 @@ func _process(delta):
 		var closest_mob = get_closest_mob()
 		if closest_mob != null:
 			projectile_instance.target = closest_mob
+			projectile_instance.damage = projectile_damage  # Set projectile damage
+			projectile_instance.speed = projectile_speed  # Set projectile speed
 		get_tree().root.add_child(projectile_instance)
 		fire_timer.start()
 
@@ -110,7 +114,7 @@ func _on_health_depleted():
 # Fonction pour obtenir le mob le plus proche
 func get_closest_mob():
 	var closest_mob = null
-	var closest_distance = INF
+	var closest_distance = 1e10  # Initialize to a large float value
 	var mobs = get_tree().get_nodes_in_group("mobs")  # Assurez-vous que vos mobs sont dans un groupe nommé "mobs"
 
 	for mob in mobs:

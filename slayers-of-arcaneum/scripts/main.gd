@@ -12,6 +12,7 @@ var mobs_spawned = 0
 var spawn_timer: Timer
 var wave_timer: Timer
 var score = 0
+var current_wave = 1
 
 func _ready():
 	spawn_timer = Timer.new()
@@ -31,7 +32,14 @@ func _process(delta):
 
 func _spawn_mob():
 	if mobs_spawned < max_mobs:
-		var mob_scene = mob_scenes[randi() % mob_scenes.size()]
+		var mob_scene
+		if current_wave == 1:
+			mob_scene = mob_scenes[0]  # Only spawn MobSkeleton in the first wave
+		elif current_wave == 2:
+			mob_scene = mob_scenes[randi() % 2]  # Spawn MobSkeleton or Shadow in the second wave
+		else:
+			mob_scene = mob_scenes[randi() % 3]  # Spawn any mob in the third wave and beyond
+
 		var mob_instance = mob_scene.instantiate()
 		var angle = randf_range(0, 2 * PI)
 		var random_position = player.global_position + Vector2(cos(angle), sin(angle)) * spawn_radius
@@ -51,6 +59,7 @@ func _spawn_mob():
 
 func _start_new_wave():
 	mobs_spawned = 0
+	current_wave += 1
 	spawn_timer.start()
 
 func _on_mob_died(points):
