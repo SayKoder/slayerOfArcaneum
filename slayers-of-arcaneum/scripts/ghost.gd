@@ -1,0 +1,36 @@
+extends CharacterBody2D
+class_name Ghost
+
+@export var speed = 80
+@export var hp = 15
+@export var damage = 15
+@onready var health_bar: ProgressBar = $ProgressBar
+signal died
+
+func _ready():
+	if health_bar:
+		health_bar.max_value = hp
+		health_bar.value = hp
+	else:
+		print("Error: ProgressBar node not found")
+
+func _process(delta):
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		var direction = (player.global_position - global_position).normalized()
+		position += direction * speed * delta
+
+func take_damage(damage):
+	hp -= damage
+	if health_bar:
+		health_bar.value = hp  # Update the health bar value
+	print("Damage taken: ", damage, " | Remaining HP: ", hp)
+	if hp <= 0:
+		emit_signal("died")
+		die()
+
+func die():
+	queue_free()
+
+func _on_Died():
+	print("The ghost mob has died")

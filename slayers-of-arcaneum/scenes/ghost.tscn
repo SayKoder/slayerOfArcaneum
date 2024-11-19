@@ -1,134 +1,134 @@
-[gd_scene load_steps=39 format=3 uid="uid://dvqjk07c32tn"]
+[gd_scene load_steps=39 format=3 uid="uid://dkiiqsu5rdm0k"]
 
-[ext_resource type="Texture2D" uid="uid://db57i3x65rl7w" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_4in2p"]
-[ext_resource type="Script" path="res://scripts/mob_skeleton.gd" id="1_4s2fc"]
-[ext_resource type="Texture2D" uid="uid://fds55u8smeqy" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="5_au2qp"]
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_2n2id"]
+[ext_resource type="Texture2D" uid="uid://db57i3x65rl7w" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="1_a3v4s"]
+[ext_resource type="Texture2D" uid="uid://fds55u8smeqy" path="res://assets/Ennemies/Skeleton/Sprite Sheets/Skeleton Walk.png" id="2_pkn01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82256"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(0, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2r20"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(43, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1j2h"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(86, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjkdd"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(129, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li7c1"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(172, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jqba"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(215, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntxij"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(258, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbkyj"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(301, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4j5a"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(344, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfcvs"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(387, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3mvv"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(430, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu4vt"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(473, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucodf"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(516, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejnar"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(559, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbglk"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(602, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jo5hs"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(645, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e37nc"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(688, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ak4e"]
-atlas = ExtResource("1_4in2p")
+atlas = ExtResource("1_a3v4s")
 region = Rect2(731, 0, 43, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_beqr3"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(0, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37hpo"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(22, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k14y1"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(44, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktuv4"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(66, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3n18"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(88, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yiqi"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(110, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jve7h"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(132, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxg2e"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(154, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wixbo"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(176, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7yq0"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(198, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7kbf"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(220, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujolr"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(242, 0, 22, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgv6t"]
-atlas = ExtResource("5_au2qp")
+atlas = ExtResource("2_pkn01")
 region = Rect2(264, 0, 22, 33)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hfnir"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7777t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -249,47 +249,47 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0bj"]
-size = Vector2(32, 52)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpoiu"]
+size = Vector2(90, 156)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gv2pk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em858"]
 bg_color = Color(0.217323, 0.211535, 0.203633, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0t1p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hirbm"]
 bg_color = Color(0.611255, 0, 0.166287, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="ennemy_skeleton_weak" type="CharacterBody2D" groups=["mobs"]]
+[node name="Ghost" type="CharacterBody2D" groups=["mobs"]]
 collision_layer = 8
-collision_mask = 8
-script = ExtResource("1_4s2fc")
+collision_mask = 3
+script = ExtResource("1_2n2id")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(10, -15)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_hfnir")
+position = Vector2(34.5, -12.5)
+scale = Vector2(4.90698, 5.43243)
+sprite_frames = SubResource("SpriteFrames_7777t")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-13, -3)
-shape = SubResource("RectangleShape2D_qc0bj")
+position = Vector2(-18, 12)
+shape = SubResource("RectangleShape2D_fpoiu")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -47.0
-offset_top = -68.0
-offset_right = 27.0
-offset_bottom = -41.0
+offset_left = -55.0
+offset_top = -118.0
+offset_right = 36.0
+offset_bottom = -91.0
 theme_override_colors/font_color = Color(0.117169, 0.351094, 0.202909, 1)
-theme_override_styles/background = SubResource("StyleBoxFlat_gv2pk")
-theme_override_styles/fill = SubResource("StyleBoxFlat_t0t1p")
-max_value = 10.0
-value = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_em858")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hirbm")
+max_value = 25.0
+value = 25.0
 show_percentage = false

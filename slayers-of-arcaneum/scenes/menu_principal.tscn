@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg2vsmd0mwguv"]
+
+[ext_resource type="Texture2D" uid="uid://bvpgen23a1hjh" path="res://assets/Texture/LogoJeu4.png" id="1_hkw7f"]
+[ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_v64rg"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v64rg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -4.0
+offset_right = 125.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hkw7f")
+stretch_mode = 2
+
+[node name="StartBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 700.0
+offset_right = 908.0
+offset_bottom = 777.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="QuitBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1162.0
+offset_top = 701.0
+offset_right = 1512.0
+offset_bottom = 778.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="button_down" from="StartBtn" to="." method="_on_start_btn_button_down"]
+[connection signal="button_down" from="QuitBtn" to="." method="_on_quit_btn_button_down"]

@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @export var speed = 150
+@export var fire_rate = 0.5  # Minimum delay between each projectile in seconds
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shooting_point = $ShootingPoint
 @onready var hurt_box = $HurtBox
+@onready var fire_timer = Timer.new()
 signal health_depleted
 var hp = 150.0  # Initialisation des points de vie.
 @onready var sprite = $Sprite2D  # Sprite2D à inverser horizontalement.
@@ -16,6 +18,9 @@ var inactivity_timer = 0.0  # Compteur d'inactivité
 func _ready():
 	hurt_box.connect("hurt", Callable(self, "_on_HurtBox_hurt"))
 	connect("health_depleted", Callable(self, "_on_health_depleted"))
+	fire_timer.wait_time = fire_rate
+	fire_timer.one_shot = true
+	add_child(fire_timer)
 
 func _process(delta):
 	var move_velocity = Vector2.ZERO # Le vecteur de mouvement du joueur.
@@ -23,24 +28,19 @@ func _process(delta):
 	# Autoriser les mouvements même si le personnage attaque
 	if Input.is_action_pressed("move_right"):
 		move_velocity.x += 1
-		sprite.flip_h = true
-		animation_player.play("run_left")  # Utilise l'animation gauche et la retourne.
 	elif Input.is_action_pressed("move_left"):
 		move_velocity.x -= 1
-		sprite.flip_h = false
-		animation_player.play("run_left")
-	elif Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down"):
 		move_velocity.y += 1
-		animation_player.play("run_bottom")
 	elif Input.is_action_pressed("move_up"):
 		move_velocity.y -= 1
-		animation_player.play("run_top")
-	else:
-		# Revenir à l’animation d’inactivité selon la direction.
-		if sprite.flip_h:
-			animation_player.play("idle_left")
-		else:
-			animation_player.play("idle")
+
+	# Normaliser la vitesse si le personnage se déplace
+	if move_velocity.length() > 0:
+		move_velocity = move_velocity.normalized() * speed
+
+	# Déplacer le joueur
+	position += move_velocity * delta
 
 	# Réinitialiser le compteur d'inactivité si une touche est pressée
 	if move_velocity != Vector2.ZERO:
@@ -67,17 +67,12 @@ func _process(delta):
 			# Optionnel: Afficher un écran de Game Over ou réinitialiser le jeu
 			show_end_menu()
 
-	# Si on n'est pas en train d'attaquer, jouer les animations de déplacement
-	if not is_attacking:
-		if move_velocity.length() == 0:
-			animation_player.play("idle")
-		else:
-			animation_player.play("running")
-
 	# Ajout du code demandé
 	if move_velocity.x > 0:
-		animation_player.play("run_right")
+		sprite.flip_h = true
+		animation_player.play("run_left")
 	elif move_velocity.x < 0:
+		sprite.flip_h = false
 		animation_player.play("run_left")
 	elif move_velocity.y > 0:
 		animation_player.play("run_bottom")
@@ -86,25 +81,21 @@ func _process(delta):
 	else:
 		animation_player.play("idle")
 
-	if move_velocity.length() > 0:
-		move_velocity = move_velocity.normalized() * speed
-
-	position += move_velocity * delta
-
 	# Gestion du délai avant de quitter le jeu
 	if Input.is_action_pressed("QuitJeu"):
 		print("appuie sur Quit (Touche B8) effectue")
 		await get_tree().create_timer(quit_delay).timeout
 		JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
 
-	# Lancer un projectile
-	if Input.is_action_just_pressed("fire"):
+	# Lancer un projectile avec un délai minimum entre chaque tir
+	if Input.is_action_just_pressed("attack_1") and fire_timer.is_stopped():
 		var projectile_instance = projectile_scene.instantiate()
 		projectile_instance.global_position = shooting_point.global_position
 		var closest_mob = get_closest_mob()
 		if closest_mob != null:
 			projectile_instance.target = closest_mob
 		get_tree().root.add_child(projectile_instance)
+		fire_timer.start()
 
 # Fonction appelée lorsque la santé est épuisée
 func _on_health_depleted():

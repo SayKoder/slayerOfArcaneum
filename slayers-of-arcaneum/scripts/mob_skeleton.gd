@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name MobSkeleton
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var speed = 100
