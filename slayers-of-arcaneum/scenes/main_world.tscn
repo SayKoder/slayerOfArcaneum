@@ -1772,6 +1772,13 @@ collision_layer = 1
 position = Vector2(-7, 13)
 position_smoothing_enabled = true
 
+[node name="ScoreLabel" type="Label" parent="Player/Camera2D"]
+offset_left = 352.0
+offset_top = -520.0
+offset_right = 952.0
+offset_bottom = -428.0
+theme_override_font_sizes/font_size = 25
+
 [node name="ShootingPoint" type="Marker2D" parent="Player"]
 position = Vector2(-29, -33)
 
@@ -1780,17 +1787,14 @@ visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeMenu" parent="Player" instance=ExtResource("12_j7msg")]
+visible = false
 offset_left = 2.5
 offset_right = 2.5
 
-[node name="ScoreLabel" type="Label" parent="Player"]
-offset_left = -552.0
-offset_top = -419.0
-offset_right = 48.0
-offset_bottom = -327.0
-theme_override_font_sizes/font_size = 14
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("12_gxhfw")]
+visible = false
 position = Vector2(-476, 131)
 collision_layer = 0
 collision_mask = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

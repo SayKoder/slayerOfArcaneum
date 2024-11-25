@@ -452,6 +452,7 @@ shape = SubResource("RectangleShape2D_cv7cc")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -47.0
 offset_top = -68.0
 offset_right = 44.0

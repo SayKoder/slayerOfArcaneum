@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name Shadow
 
-@export var speed = 100
-@export var hp = 20
-@export var damage = 10
+@export var speed = 200
+@export var hp = 25
+@export var damage = 30
 @onready var health_bar: ProgressBar = $ProgressBar
 signal died
 

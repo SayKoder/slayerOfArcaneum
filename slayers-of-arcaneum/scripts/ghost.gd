@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name Ghost
 
-@export var speed = 80
-@export var hp = 15
-@export var damage = 15
+@export var speed = 130
+@export var hp = 89
+@export var damage = 50
 @onready var health_bar: ProgressBar = $ProgressBar
 signal died
 

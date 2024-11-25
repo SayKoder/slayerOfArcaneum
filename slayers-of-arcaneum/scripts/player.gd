@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 150
-@export var fire_rate = 0.5  # Minimum delay between each projectile in seconds
+@export var fire_rate = 0.3  # Minimum delay between each projectile in seconds
 @export var projectile_damage = 10  # Damage of each projectile
 @export var projectile_speed = 300  # Speed of each projectile
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
@@ -14,7 +14,7 @@ var hp = 150.0  # Initialisation des points de vie.
 @onready var animation_player = $AnimationPlayer
 var is_attacking = false
 var quit_delay = 2.0  # Délai avant de quitter le jeu en secondes
-var inactivity_delay = 10.0  # Délai d'inactivité en secondes
+var inactivity_delay = 60.0 # Délai d'inactivité en secondes
 var inactivity_timer = 0.0  # Compteur d'inactivité
 
 func _ready():
@@ -55,7 +55,7 @@ func _process(delta):
 		await get_tree().create_timer(quit_delay).timeout
 		JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
 
-	const DAMAGE_RATE = 2.0
+	const DAMAGE_RATE = 30.0
 	var overlapping_mobs = hurt_box.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
 		hp -= DAMAGE_RATE * overlapping_mobs.size() * delta

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name MobSkeleton
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@export var speed = 100
+@export var speed = 170
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var max_hp = 5
 var hp
@@ -10,6 +10,8 @@ var hp
 @onready var health_bar: ProgressBar = $ProgressBar  # Reference to the ProgressBar node
 
 signal died
+
+
 
 func _ready() -> void:
 	hp = max_hp

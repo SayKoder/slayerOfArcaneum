@@ -3,11 +3,11 @@ extends Node2D
 @export var mob_scenes = [preload("res://scenes/mob_skeleton.tscn"), preload("res://scenes/shadow.tscn"), preload("res://scenes/ghost.tscn")]
 @export var spawn_radius = 500
 @export var spawn_interval = 0.5
-@export var max_mobs = 10
+@export var max_mobs = 50
 @export var wave_interval = 30.0
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var score_label = $Player/ScoreLabel
+@onready var score_label = $Player/Camera2D/ScoreLabel
 var mobs_spawned = 0
 var spawn_timer: Timer
 var wave_timer: Timer
@@ -28,7 +28,7 @@ func _ready():
 	wave_timer.start()
 
 func _process(delta):
-	score_label.global_position = player.global_position + Vector2(0, -50)
+	score_label.global_position = player.global_position + Vector2(768, -500)
 
 func _spawn_mob():
 	if mobs_spawned < max_mobs:

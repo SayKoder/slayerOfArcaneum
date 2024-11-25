@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://5yqjhkax0vga"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_brnp5"]
-[ext_resource type="Texture2D" uid="uid://cgwgik78k7k7c" path="res://assets/PlayerCharacter/PlayerSpriteSheet.png" id="2_b8t6v"]
+[ext_resource type="Texture2D" uid="uid://c1tpj72fq7clx" path="res://assets/Slayer/PlayerSpriteSheet.png" id="2_ipkwr"]
 [ext_resource type="PackedScene" uid="uid://cw8pqd4b6accg" path="res://utility/hurt_box.tscn" id="7_mrusb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eets7"]
@@ -161,8 +161,8 @@ motion_mode = 1
 script = ExtResource("1_brnp5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-10, -15)
-texture = ExtResource("2_b8t6v")
+position = Vector2(-10, 8)
+texture = ExtResource("2_ipkwr")
 hframes = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
