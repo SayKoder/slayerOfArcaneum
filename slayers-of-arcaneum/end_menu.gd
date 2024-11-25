@@ -4,7 +4,6 @@ extends Control
 @onready var Restart = $PanelContainer/VBoxContainer/Restart as Button
 @onready var Quit = $PanelContainer/VBoxContainer/Quit as Button
 @onready var level = preload("res://scenes/main_world.tscn")
-
 func _ready():
 	# Connecte les signaux des boutons
 	Restart.pressed.connect(on_restart_pressed)

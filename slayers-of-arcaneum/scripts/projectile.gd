@@ -9,14 +9,13 @@ var target: Node2D
 @onready var collision = $CollisionShape2D
 
 func _ready():
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	pass
 
 func _process(delta):
 	if target and is_instance_valid(target):
 		var direction = (target.global_position - global_position).normalized()
 		position += direction * speed * delta
 		# Play the moving animation
-		animation_player.play("attack_1")
 	else:
 		queue_free()  # Remove the projectile if the target is not valid
 

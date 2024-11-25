@@ -3,32 +3,29 @@ extends Node2D
 @export var mob_scenes = [preload("res://scenes/mob_skeleton.tscn"), preload("res://scenes/shadow.tscn"), preload("res://scenes/ghost.tscn")]
 @export var spawn_radius = 500
 @export var spawn_interval = 0.5
-@export var max_mobs = 50
-@export var wave_interval = 30.0
+@export var max_mobs = 10
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var score_label = $Player/Camera2D/ScoreLabel
+@onready var score_label = $Player/ScoreLabel
+@onready var upgrade_menu_scene = preload("res://scenes/upgrade_menu.tscn")
+
+signal wave_completed
+
 var mobs_spawned = 0
-var spawn_timer: Timer
-var wave_timer: Timer
 var score = 0
 var current_wave = 1
+var spawn_timer: Timer
 
 func _ready():
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.connect("timeout", Callable(self, "_spawn_mob"))
 	add_child(spawn_timer)
-	spawn_timer.start()
-
-	wave_timer = Timer.new()
-	wave_timer.wait_time = wave_interval
-	wave_timer.connect("timeout", Callable(self, "_start_new_wave"))
-	add_child(wave_timer)
-	wave_timer.start()
+	connect("wave_completed", Callable(self, "_on_wave_completed"))
+	_start_new_wave()
 
 func _process(delta):
-	score_label.global_position = player.global_position + Vector2(768, -500)
+	score_label.global_position = player.global_position + Vector2(0, -50)
 
 func _spawn_mob():
 	if mobs_spawned < max_mobs:
@@ -65,3 +62,11 @@ func _start_new_wave():
 func _on_mob_died(points):
 	score += points
 	score_label.text = "Score: %d" % score
+	mobs_spawned -= 1
+	if mobs_spawned == 0:
+		emit_signal("wave_completed")
+
+func _on_wave_completed():
+	var upgrade_menu_instance = upgrade_menu_scene.instantiate()
+	player.add_child(upgrade_menu_instance)
+	get_tree().paused = true
