@@ -1,31 +1,78 @@
+class_name CustomUpgradeMenu
 extends Control
 
-@onready var upgrade_button_1 = $VBoxContainer/UpgradeButton1 as Button
-@onready var upgrade_button_2 = $VBoxContainer/UpgradeButton2 as Button
-@onready var upgrade_button_3 = $VBoxContainer/UpgradeButton3 as Button
+@onready var Acceleration = $VBoxContainer/Acceleration as Button
+@onready var IncreaseDamage = $VBoxContainer/IncreaseDamage as Button
 
 func _ready():
-	upgrade_button_1.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(1))
-	upgrade_button_2.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(2))
-	upgrade_button_3.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(3))
+	if Acceleration:
+		print("Acceleration button found")
+		Acceleration.connect("pressed", Callable(self, "_on_Acceleration_pressed"))
+		Acceleration.grab_focus()
+	else:
+		print("Acceleration button not found")
 
-func _process(delta):
-	if Input.is_action_just_pressed("StartGame"):
-		if upgrade_button_1.has_focus():
-			_on_upgrade_button_pressed(1)
-		elif upgrade_button_2.has_focus():
-			_on_upgrade_button_pressed(2)
-		elif upgrade_button_3.has_focus():
-			_on_upgrade_button_pressed(3)
+	if IncreaseDamage:
+		print("IncreaseDamage button found")
+		IncreaseDamage.connect("pressed", Callable(self, "_on_IncreaseDamage_pressed"))
+	else:
+		print("IncreaseDamage button not found")
+
+	print("Upgrade menu ready")
+
+func _process(_delta):
+	if Input.is_action_just_pressed("move_down"):
+		_focus_next_button()
+	elif Input.is_action_just_pressed("move_up"):
+		_focus_previous_button()
+	elif Input.is_action_just_pressed("menu_button"):
+		_activate_button()
+
+func _activate_button() -> void:
+	if Acceleration.has_focus():
+		_on_Acceleration_pressed()
+	elif IncreaseDamage.has_focus():
+		_on_IncreaseDamage_pressed()
+
+func _focus_next_button() -> void:
+	if Acceleration.has_focus():
+		IncreaseDamage.grab_focus()
+	elif IncreaseDamage.has_focus():
+		Acceleration.grab_focus()
+
+func _focus_previous_button() -> void:
+	if Acceleration.has_focus():
+		IncreaseDamage.grab_focus()
+	elif IncreaseDamage.has_focus():
+		Acceleration.grab_focus()
+
+func _on_Acceleration_pressed() -> void:
+	print("Acceleration button pressed")
+	_on_upgrade_button_pressed(1)
+
+func _on_IncreaseDamage_pressed() -> void:
+	print("IncreaseDamage button pressed")
+	_on_upgrade_button_pressed(2)
 
 func _on_upgrade_button_pressed(upgrade_type):
 	var player = get_tree().get_first_node_in_group("player")
+	if player == null:
+		print("Player not found")
+		return
+
 	match upgrade_type:
 		1:
-			player.fire_rate -= 0.1  # Example upgrade: Increase fire rate
+			print("Upgrading speed")
+			player.upgrade_speed()
 		2:
-			player.projectile_damage += 5  # Example upgrade: Increase projectile damage
-		3:
-			player.projectile_speed += 50  # Example upgrade: Increase projectile speed
+			print("Upgrading damage")
+			player.upgrade_projectile_damage()
+
+	start_wave_two()
 	get_tree().paused = false
 	queue_free()
+
+func start_wave_two():
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.start_wave_two()

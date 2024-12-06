@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var speed = 300
+@export var speed = 200
 @export var damage = 1
 var target: Node2D
 
-@onready var sprite = $Sprite2D  # Sprite2D à inverser horizontalement.
+@onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var collision = $CollisionShape2D
 

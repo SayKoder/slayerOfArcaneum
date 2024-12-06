@@ -11,7 +11,7 @@ func _ready():
 	# Set initial focus on the start button
 	start_button.grab_focus()
 
-func _process(delta):
+func _process(_delta):
 	# Handle input for navigating and activating buttons
 	if Input.is_action_just_pressed("move_down"):
 		_focus_next_button()

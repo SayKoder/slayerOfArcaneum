@@ -5,6 +5,8 @@
 [node name="UpgradeMenu" type="Control"]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 self_modulate = Color(0.189733, 0.0880035, 0.543271, 1)
+light_mask = 524288
+visibility_layer = 524288
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,15 +29,15 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UpgradeButton1" type="Button" parent="VBoxContainer"]
+[node name="Acceleration" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "amelioratio1"
+text = "amelioration 1"
 
-[node name="UpgradeButton2" type="Button" parent="VBoxContainer"]
+[node name="IncreaseDamage" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "amelioration 2
 "
 
-[node name="UpgradeButton3" type="Button" parent="VBoxContainer"]
+[node name="RegeneHealtPlayer" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "amélioration 3"
