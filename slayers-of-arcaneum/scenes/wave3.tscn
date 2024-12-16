@@ -1,21 +1,21 @@
-[gd_scene load_steps=26 format=4 uid="uid://f0m7vr7tugkn"]
+[gd_scene load_steps=26 format=4 uid="uid://ditr2a1cjjthc"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_02drp"]
-[ext_resource type="Texture2D" uid="uid://s3i8pp43rmbj" path="res://assets/Texture/TX Tileset Grass.png" id="1_drula"]
-[ext_resource type="Texture2D" uid="uid://elpv6ool53no" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Stone Ground.png" id="2_2hw0d"]
-[ext_resource type="PackedScene" uid="uid://5yqjhkax0vga" path="res://scenes/player.tscn" id="2_p1tn0"]
-[ext_resource type="Texture2D" uid="uid://crnfdm5swhqol" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Plant.png" id="3_cmcjb"]
-[ext_resource type="Texture2D" uid="uid://ici3cyywo3yj" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Player.png" id="4_427cv"]
-[ext_resource type="Texture2D" uid="uid://br200jki1x07d" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Props.png" id="5_ebwfq"]
-[ext_resource type="Texture2D" uid="uid://c14epxwa1fji7" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Struct.png" id="6_acjns"]
-[ext_resource type="Texture2D" uid="uid://ci70x0xktccsw" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Wall.png" id="7_6fdnc"]
-[ext_resource type="Texture2D" uid="uid://biihu4c5e7850" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow Plant.png" id="8_6v7uh"]
-[ext_resource type="Texture2D" uid="uid://cc3san7ckvr5k" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow.png" id="9_agcsh"]
-[ext_resource type="PackedScene" uid="uid://xmhyidj2nvsq" path="res://scenes/Gommery_boss.tscn" id="12_gxhfw"]
-[ext_resource type="PackedScene" uid="uid://cg2vsmd0mwguv" path="res://scenes/menu_principal.tscn" id="15_mynit"]
+[ext_resource type="Script" path="res://scripts/wave2.gd" id="1_x1aah"]
+[ext_resource type="PackedScene" uid="uid://b3tqgsnw3mujr" path="res://scenes/player_stats_ui.tscn" id="2_no6aa"]
+[ext_resource type="Texture2D" uid="uid://s3i8pp43rmbj" path="res://assets/Texture/TX Tileset Grass.png" id="3_vdhlj"]
+[ext_resource type="Texture2D" uid="uid://elpv6ool53no" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Stone Ground.png" id="4_ip4ae"]
+[ext_resource type="Texture2D" uid="uid://crnfdm5swhqol" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Plant.png" id="5_umudv"]
+[ext_resource type="Texture2D" uid="uid://ici3cyywo3yj" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Player.png" id="6_gvckq"]
+[ext_resource type="Texture2D" uid="uid://br200jki1x07d" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Props.png" id="7_8qy3x"]
+[ext_resource type="Texture2D" uid="uid://c14epxwa1fji7" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Struct.png" id="8_67tmo"]
+[ext_resource type="Texture2D" uid="uid://ci70x0xktccsw" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Wall.png" id="9_ylmud"]
+[ext_resource type="Texture2D" uid="uid://biihu4c5e7850" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow Plant.png" id="10_cidml"]
+[ext_resource type="Texture2D" uid="uid://cc3san7ckvr5k" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Shadow.png" id="11_lf3up"]
+[ext_resource type="PackedScene" uid="uid://5yqjhkax0vga" path="res://scenes/player.tscn" id="12_p8bok"]
+[ext_resource type="PackedScene" uid="uid://xmhyidj2nvsq" path="res://scenes/Gommery_boss.tscn" id="13_b1jg7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivshp"]
-texture = ExtResource("1_drula")
+texture = ExtResource("3_vdhlj")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -274,14 +274,14 @@ texture = ExtResource("1_drula")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qlmn"]
-texture = ExtResource("2_2hw0d")
+texture = ExtResource("4_ip4ae")
 
 [sub_resource type="TileSet" id="TileSet_5uo4m"]
 sources/0 = SubResource("TileSetAtlasSource_ivshp")
 sources/13 = SubResource("TileSetAtlasSource_6qlmn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52qbe"]
-texture = ExtResource("3_cmcjb")
+texture = ExtResource("5_umudv")
 4:0/0 = 0
 5:0/0 = 0
 3:1/0 = 0
@@ -526,7 +526,7 @@ texture = ExtResource("3_cmcjb")
 7:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7bbb"]
-texture = ExtResource("4_427cv")
+texture = ExtResource("6_gvckq")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -557,7 +557,7 @@ texture = ExtResource("4_427cv")
 7:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_its5n"]
-texture = ExtResource("5_ebwfq")
+texture = ExtResource("7_8qy3x")
 14:0/0 = 0
 15:0/0 = 0
 24:0/0 = 0
@@ -914,7 +914,7 @@ texture = ExtResource("5_ebwfq")
 22:16/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3cgu"]
-texture = ExtResource("6_acjns")
+texture = ExtResource("8_67tmo")
 25:1/0 = 0
 26:1/0 = 0
 27:1/0 = 0
@@ -1119,7 +1119,7 @@ texture = ExtResource("6_acjns")
 18:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c188o"]
-texture = ExtResource("7_6fdnc")
+texture = ExtResource("9_ylmud")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -1321,7 +1321,7 @@ sources/5 = SubResource("TileSetAtlasSource_v3cgu")
 sources/6 = SubResource("TileSetAtlasSource_c188o")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em5lj"]
-texture = ExtResource("8_6v7uh")
+texture = ExtResource("10_cidml")
 4:6/0 = 0
 5:6/0 = 0
 6:6/0 = 0
@@ -1423,7 +1423,7 @@ texture = ExtResource("8_6v7uh")
 13:12/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8ore"]
-texture = ExtResource("9_agcsh")
+texture = ExtResource("11_lf3up")
 24:0/0 = 0
 25:0/0 = 0
 2:1/0 = 0
@@ -1748,8 +1748,25 @@ texture = ExtResource("9_agcsh")
 sources/0 = SubResource("TileSetAtlasSource_em5lj")
 sources/1 = SubResource("TileSetAtlasSource_h8ore")
 
-[node name="World" type="Node2D"]
-script = ExtResource("1_02drp")
+[node name="wave2" type="Node2D"]
+script = ExtResource("1_x1aah")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PlayerStatsUI" parent="UI" instance=ExtResource("2_no6aa")]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 7.0
+offset_bottom = -14.0
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+offset_left = 5.0
+offset_top = 23.0
+offset_right = 1912.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="World_tileset" type="TileMapLayer" parent="."]
 position = Vector2(0, -2)
@@ -1763,11 +1780,12 @@ tile_set = SubResource("TileSet_tqer8")
 [node name="Shadows" type="TileMapLayer" parent="World_tileset/Props"]
 tile_set = SubResource("TileSet_l12iy")
 
-[node name="Player" parent="." instance=ExtResource("2_p1tn0")]
+[node name="Player" parent="." instance=ExtResource("12_p8bok")]
 light_mask = 4096
 visibility_layer = 2048
 position = Vector2(7, -13)
 collision_layer = 1
+collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-7, 13)
@@ -1776,21 +1794,7 @@ position_smoothing_enabled = true
 [node name="ShootingPoint" type="Marker2D" parent="Player"]
 position = Vector2(-29, -33)
 
-[node name="ScoreLabel" type="Label" parent="Player"]
-offset_left = -552.0
-offset_top = -419.0
-offset_right = 48.0
-offset_bottom = -327.0
-theme_override_font_sizes/font_size = 14
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("12_gxhfw")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("13_b1jg7")]
 position = Vector2(-476, 131)
 collision_layer = 0
 collision_mask = 0
-
-[node name="MenuPrincipal" parent="." instance=ExtResource("15_mynit")]
-visible = false
-offset_left = 23.0
-offset_top = -16.0
-offset_right = 23.0
-offset_bottom = -16.0

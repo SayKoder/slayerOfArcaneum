@@ -26,7 +26,7 @@ func take_damage(damage):
 		health_bar.value = hp  # Update the health bar value
 	print("Damage taken: ", damage, " | Remaining HP: ", hp)
 	if hp <= 0:
-		emit_signal("died")
+		emit_signal("died", 10)  # Emit the died signal with points
 		die()
 
 func die():

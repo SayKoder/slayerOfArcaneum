@@ -15,7 +15,6 @@ func _process(delta):
 	if target and is_instance_valid(target):
 		var direction = (target.global_position - global_position).normalized()
 		position += direction * speed * delta
-		# Play the moving animation
 	else:
 		queue_free()  # Remove the projectile if the target is not valid
 
@@ -30,3 +29,7 @@ func _on_body_entered(body):
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+func set_damage(new_damage):
+	damage = new_damage
+	print("Projectile damage set to %d" % damage)

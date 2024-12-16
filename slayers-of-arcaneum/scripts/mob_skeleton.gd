@@ -11,13 +11,10 @@ var hp
 
 signal died
 
-
-
 func _ready() -> void:
 	hp = max_hp
 	health_bar.max_value = max_hp  # Set the max value of the health bar
 	health_bar.value = hp  # Initialize the health bar value
-	connect("died", Callable(self, "_on_Died"))
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -40,11 +37,8 @@ func take_damage(damage):
 	health_bar.value = hp  # Update the health bar value
 	print("Damage taken: ", damage, " | Remaining HP: ", hp)
 	if hp <= 0:
-		emit_signal("died")
+		emit_signal("died", 10)  # Emit the died signal with points value
 		die()
 
 func die():
 	queue_free()
-
-func _on_Died():
-	print("The mob has died")

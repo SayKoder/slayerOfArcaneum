@@ -1,9 +1,9 @@
 extends Control
 
-@onready var first_lvl = "res://scenes/main_world.tscn"
+@onready var first_lvl = "res://scenes/wave1.tscn"
 @onready var start_button = $StartBtn as Button
 @onready var quit_button = $QuitBtn as Button
-
+var quit_delay = 2.0
 func _ready():
 	start_button.connect("pressed", Callable(self, "_on_start_button_pressed"))
 	quit_button.connect("pressed", Callable(self, "_on_quit_button_pressed"))
@@ -12,6 +12,9 @@ func _ready():
 	start_button.grab_focus()
 
 func _process(_delta):
+	if Input.is_action_pressed("QuitJeu"):
+		print("appuie sur Quit (Touche B8) effectue")
+		get_tree().create_timer(quit_delay).connect("timeout", Callable(self, "_on_quit_timeout"))
 	# Handle input for navigating and activating buttons
 	if Input.is_action_just_pressed("move_down"):
 		_focus_next_button()
@@ -42,4 +45,6 @@ func _on_start_button_pressed():
 	get_tree().change_scene_to_file(first_lvl)
 
 func _on_quit_button_pressed():
+	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
+func _on_quit_timeout():
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
