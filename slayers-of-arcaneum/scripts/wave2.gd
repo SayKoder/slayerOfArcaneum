@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var score_label = $UI/ScoreLabel
-@onready var upgrade_menu_scene = preload("res://scenes/upgrade_menu2.tscn")
+@onready var upgrade_menu_scene2 = preload("res://scenes/upgrade_menu2.tscn")
 @onready var player_stats_ui = preload("res://scenes/player_stats_ui.tscn")
 var quit_delay = 2.0
 signal wave_completed
@@ -60,8 +60,8 @@ func _on_wave_completed():
 	queue_free()  # Remove the current scene
 
 func _show_upgrade_menu():
-	var upgrade_menu_instance = upgrade_menu_scene.instantiate()
-	get_tree().root.add_child(upgrade_menu_instance)
+	var upgrade_menu_instance2 = upgrade_menu_scene2.instantiate()
+	get_tree().root.add_child(upgrade_menu_instance2)
 	get_tree().paused = true
 
 func upgrade_speed():

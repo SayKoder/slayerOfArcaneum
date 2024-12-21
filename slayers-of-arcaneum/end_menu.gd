@@ -1,9 +1,11 @@
-class_name EndMenu
 extends Control
 
 @onready var Restart = $PanelContainer/VBoxContainer/Restart as Button
 @onready var Quit = $PanelContainer/VBoxContainer/Quit as Button
-@onready var level = ("res://scenes/wave1.tscn")
+@onready var level = "res://scenes/wave1.tscn"
+@onready var score_end = $PanelContainer/VBoxContainer/ScoreEnd as Label  # Assurez-vous que le chemin est correct
+
+var game_stats
 
 func _ready():
 	# Connect button signals
@@ -13,7 +15,16 @@ func _ready():
 	# Set initial focus on the Restart button
 	Restart.grab_focus()
 
+	# Get the GameStats node
+	game_stats = get_node("/root/GameStats")
+
+	# Update the score display
+	update_score_display()
+
 func _process(delta):
+	# Update the score display
+	update_score_display()
+
 	# Handle input for navigating buttons
 	if Input.is_action_just_pressed("move_down"):
 		_focus_next_button()
@@ -21,6 +32,11 @@ func _process(delta):
 		_focus_previous_button()
 	elif Input.is_action_just_pressed("menu_button"):
 		_activate_button()
+
+func update_score_display():
+	if game_stats:
+		score_end.sca00le = Vector2(2, 2)  # Augmentez les valeurs pour agrandir le texte
+		score_end.text = "Score: %d" % game_stats.get_score()
 
 func _activate_button() -> void:
 	if Restart.has_focus():
@@ -41,10 +57,9 @@ func _focus_previous_button() -> void:
 		Restart.grab_focus()
 
 func on_restart_pressed() -> void:
-	GameStats.reset()
-	PlayerStats.reset()
-	queue_free()  # Remove the end menu instance from the scene tree
+	game_stats.reset()
 	get_tree().change_scene_to_file(level)
 
 func on_quit_pressed() -> void:
+	game_stats.save_score()
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")

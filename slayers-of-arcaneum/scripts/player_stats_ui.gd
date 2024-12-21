@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	if player:
 		speed_label.text = "Speed: %d" % player.speed
-		health_label.text = "Health: %d" % player.hp
+
 		playtime += delta
 		if playtime_label:
 			playtime_label.text = "Playtime: %.2f" % playtime

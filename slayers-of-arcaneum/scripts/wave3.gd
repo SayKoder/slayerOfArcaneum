@@ -35,7 +35,7 @@ func _process(delta):
 
 func _spawn_mob():
 	if mobs_spawned < max_mobs:
-		var mob = preload("res://scenes/shadow.tscn").instantiate()
+		var mob = preload("res://scenes/ghost.tscn").instantiate()
 		mob.position = Vector2(randi() % 800, randi() % 600)  # Random position within 800x600 area
 		add_child(mob)
 		mob.connect("died", Callable(self, "_on_mob_died"))

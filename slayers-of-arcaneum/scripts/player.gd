@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
-@onready var speed = PlayerStats.speed	
+
+@onready var speed = PlayerStats.speed
 @onready var fire_rate = PlayerStats.projectile_fire_rate
 @onready var projectile_damage = PlayerStats.projectile_damage
 @onready var projectile_speed = PlayerStats.speed
@@ -18,8 +19,9 @@ var quit_delay = 2.0
 var inactivity_delay = 60.0
 var inactivity_timer = 0.0
 var fire_two_projectiles = false
-var end_menu_delay = 5.0
+var end_menu_delay = 1.2
 @onready var end_menu_timer = Timer.new()
+@export var end_menu_scene = "res://scripts/end_menu.tscn"
 
 func _ready():
 	add_to_group("player")
@@ -127,11 +129,7 @@ func die() -> void:
 	queue_free()
 
 func _show_end_menu():
-	var end_menu_scene = preload("res://scripts/end_menu.tscn")
-	var end_menu_instance = end_menu_scene.instantiate()
-	end_menu_instance.global_position = global_position
-	get_tree().root.add_child(end_menu_instance)
-	end_menu_instance.grab_focus()
+	get_tree().change_scene_to_file(end_menu_scene)
 
 func upgrade_fire_two_projectiles():
 	fire_two_projectiles = true

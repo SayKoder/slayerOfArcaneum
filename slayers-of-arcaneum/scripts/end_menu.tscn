@@ -5,14 +5,18 @@
 [node name="EndMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 77.0
+offset_top = 68.0
+offset_right = 1959.0
+offset_bottom = 1070.0
 script = ExtResource("1_ko4ur")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -516.0
-offset_top = -354.0
-offset_right = 449.0
-offset_bottom = 449.0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 1823.0
+offset_bottom = 86.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 process_mode = 3
@@ -26,3 +30,12 @@ text = "RESTART"
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "QUIT"
+
+[node name="score_end" type="Label" parent="."]
+layout_mode = 2
+offset_left = 66.0
+offset_top = 84.0
+offset_right = 1823.0
+offset_bottom = 107.0
+text = "Score :"
+horizontal_alignment = 1
