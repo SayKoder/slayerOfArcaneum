@@ -3,7 +3,7 @@ extends Control
 @onready var Restart = $PanelContainer/VBoxContainer/Restart as Button
 @onready var Quit = $PanelContainer/VBoxContainer/Quit as Button
 @onready var level = "res://scenes/wave1.tscn"
-@onready var score_end = $PanelContainer/VBoxContainer/ScoreEnd as Label  # Assurez-vous que le chemin est correct
+@onready var score_end = $score_end as Label  
 
 var game_stats
 
@@ -34,8 +34,7 @@ func _process(delta):
 		_activate_button()
 
 func update_score_display():
-	if game_stats:
-		score_end.sca00le = Vector2(2, 2)  # Augmentez les valeurs pour agrandir le texte
+	if game_stats and score_end: 
 		score_end.text = "Score: %d" % game_stats.get_score()
 
 func _activate_button() -> void:

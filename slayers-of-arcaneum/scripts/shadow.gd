@@ -23,10 +23,10 @@ func _process(delta):
 func take_damage(damage):
 	hp -= damage
 	if health_bar:
-		health_bar.value = hp  # Update the health bar value
+		health_bar.value = hp  
 	print("Damage taken: ", damage, " | Remaining HP: ", hp)
 	if hp <= 0:
-		emit_signal("died", 10)  # Emit the died signal with points
+		emit_signal("died", 10)  
 		die()
 
 func die():

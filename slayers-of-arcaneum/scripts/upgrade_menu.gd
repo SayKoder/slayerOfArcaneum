@@ -3,7 +3,7 @@ extends Control
 @onready var Acceleration = $HBoxContainer/AccelerationBtn as Button
 @onready var IncreaseDamage = $HBoxContainer/IncreaseDamageBtn as Button
 @onready var RegeneHealtPlayer = $HBoxContainer/RegeneHealtPlayerBtn as Button
-@export var next_scene = "res://scenes/wave2.tscn"  # Path to the next scene
+@export var next_scene = "res://scenes/wave2.tscn"
 
 func _ready():
 	if Acceleration:

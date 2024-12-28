@@ -8,14 +8,12 @@ func _ready():
 	start_button.connect("pressed", Callable(self, "_on_start_button_pressed"))
 	quit_button.connect("pressed", Callable(self, "_on_quit_button_pressed"))
 
-	# Set initial focus on the start button
 	start_button.grab_focus()
 
 func _process(_delta):
 	if Input.is_action_pressed("QuitJeu"):
 		print("appuie sur Quit (Touche B8) effectue")
 		get_tree().create_timer(quit_delay).connect("timeout", Callable(self, "_on_quit_timeout"))
-	# Handle input for navigating and activating buttons
 	if Input.is_action_just_pressed("move_down"):
 		_focus_next_button()
 	elif Input.is_action_just_pressed("move_up"):

@@ -57,7 +57,7 @@ func _on_mob_died(points):
 
 func _on_wave_completed():
 	_show_upgrade_menu()
-	queue_free()  # Remove the current scene
+	queue_free()  
 
 func _show_upgrade_menu():
 	var upgrade_menu_instance2 = upgrade_menu_scene2.instantiate()

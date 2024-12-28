@@ -16,7 +16,7 @@ func _process(delta):
 		var direction = (target.global_position - global_position).normalized()
 		position += direction * speed * delta
 	else:
-		queue_free()  # Remove the projectile if the target is not valid
+		queue_free()  
 
 func _on_body_entered(body):
 	print("Collision detected with: ", body)
@@ -25,7 +25,7 @@ func _on_body_entered(body):
 		body.take_damage(damage)
 	else:
 		print("No take_damage method found on: ", body)
-	queue_free()  # Remove the projectile from the scene after hitting the target
+	queue_free()  
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
