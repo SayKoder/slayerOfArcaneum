@@ -5,7 +5,6 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var score_label = $UI/ScoreLabel
-@onready var upgrade_menu_scene = preload("res://scenes/upgrade_menu.tscn")
 @onready var player_stats_ui = preload("res://scenes/player_stats_ui.tscn")
 var quit_delay = 2.0
 signal wave_completed
@@ -55,14 +54,6 @@ func _on_mob_died(points):
 	mobs_killed += 1
 	if mobs_spawned == 0 and mobs_killed >= max_mobs:
 		emit_signal("wave_completed")
-
-func _on_wave_completed():
-	_show_upgrade_menu()
-
-func _show_upgrade_menu():
-	var upgrade_menu_instance = upgrade_menu_scene.instantiate()
-	$UI.add_child(upgrade_menu_instance)
-	get_tree().paused = true
 
 func upgrade_speed():
 	player.speed += 50

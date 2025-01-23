@@ -417,7 +417,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv7cc"]
-size = Vector2(102, 73)
+size = Vector2(73, 53)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4p7h"]
 bg_color = Color(0.217323, 0.211535, 0.203633, 1)
@@ -447,7 +447,7 @@ autoplay = "running"
 frame_progress = 0.6567
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 5)
+position = Vector2(-9.5, 5.5)
 shape = SubResource("RectangleShape2D_cv7cc")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

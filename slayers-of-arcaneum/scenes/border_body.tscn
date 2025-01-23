@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgpitxch3dpil"]
+
+[ext_resource type="Script" path="res://scripts/rigide_body.gd" id="1_hce6u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tly7e"]
+radius = 69.0
+height = 214.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(-2, -6)
+script = ExtResource("1_hce6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tly7e")
+debug_color = Color(0.633978, 0.527839, 1.92523e-07, 0.42)

@@ -85,7 +85,7 @@ func update_highscores(highscores: Array, new_score: Dictionary) -> Array:
 	return highscores
 
 func send_score_to_server(score_data: Dictionary):
-	var url = "http://localhost:3000/api?game=SlayersOfArcaneum"
+	var url = "http://localhost:3000/SlayersOfArcaneum"
 	print("Envoi des données à :", url)
 
 	var json = JSON.stringify(score_data)
