@@ -5,5 +5,7 @@
   "year": 2024,
   "type": "Horde Survival",
   "players": "1",
-  "highscores": []
+  "highscores": [{"name": "AAA", "score": 100},
+		{"name": "BBB", "score": 80},
+		{"name": "CCC", "score": 60}]
 }

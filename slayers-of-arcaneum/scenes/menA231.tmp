@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd34dhgs2gnvt"]
+
+[ext_resource type="Script" path="res://scripts/menu_save.gd" id="1_t60w4"]
+
+[node name="menu_save" type="Control"]
+layout_mode = 3
+anchor_left = -0.592
+anchor_top = -0.556
+anchor_right = 0.4
+anchor_bottom = 0.437
+offset_left = 8.64001
+offset_top = -7.51996
+offset_right = 24.0
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_t60w4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 224.0

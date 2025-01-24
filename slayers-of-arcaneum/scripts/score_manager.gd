@@ -2,14 +2,8 @@ extends Node
 
 const SAVE_PATH="res://info.js"
 
-var high_scores: Array=[]
-var score: int = 0
+var high_scores=[]
 
-func _ready():
-	load_data()
-	print("High Scores :", GameStats.high_scores)  # Vérifiez si les scores sont bien chargés
-	print("Score actuel :", GameStats.score)
-	
 func load_data():
 	if FileAccess.file_exists(SAVE_PATH):
 		var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.READ)
@@ -18,11 +12,6 @@ func load_data():
 	
 		if parsed_data != null and typeof(parsed_data) == TYPE_DICTIONARY:
 			high_scores = parsed_data.get("highscores", [])
-			for entry in high_scores:
-				if not entry.has("name") or not entry.has("score"):
-					print("Données corrompues :", entry)
-					high_scores.clear()
-					break
 		else:
 			high_scores = []
 	else:
@@ -36,8 +25,8 @@ func save_data():
 	file.store_string(JSON.stringify(game_data, " "))
 	file.close()
 	
-func add_score(name: String, score: int) -> bool:
-	if name.length() != 3:
+func add_score(name: String, score: int):
+	if name.length() !=3:
 		return false
 	
 	high_scores.append({"name": name.to_upper(), "score": score})
@@ -48,19 +37,6 @@ func add_score(name: String, score: int) -> bool:
 	
 	save_data()
 	return true
-	
-func get_score() -> int:
-	return score
 
-func _sort_by_score(a: Dictionary, b: Dictionary) ->int:
-	return b["score"] - a["score"]
-
-func get_high_scores_string() -> String:
-	var result = "Meilleurs scores :\n"
-	for entry in high_scores:
-		result += "%s: %d\n".format(entry["name"], entry["score"])
-	return result
-
-	
-func reset():
-	score = 0
+func _sort_by_score(a, b):
+	return b[1] - a[1]

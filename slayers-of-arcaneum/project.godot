@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerStats="*res://scripts/PlayerStats.gd"
 GameStats="*res://scripts/GameStats.gd"
 QuitTime="*res://scripts/quitTime.gd"
+Main="*res://scripts/main.gd"
 
 [display]
 

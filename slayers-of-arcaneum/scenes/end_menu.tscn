@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck3vwa038omyp"]
+
+[ext_resource type="Script" path="res://end_menu.gd" id="1_ko4ur"]
+
+[node name="EndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ko4ur")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -516.0
+offset_top = -354.0
+offset_right = 449.0
+offset_bottom = 449.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "RESTART"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="Save" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "SAVE"

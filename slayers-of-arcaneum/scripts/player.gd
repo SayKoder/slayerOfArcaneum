@@ -21,7 +21,7 @@ var inactivity_timer = 0.0
 var fire_two_projectiles = false
 var end_menu_delay = 1.2
 @onready var end_menu_timer = Timer.new()
-@export var end_menu_scene = "res://scripts/end_menu.tscn"
+@export var save_menu = "res://scenes/menu_save.tscn"
 
 @onready var border_area = $BorderArea
 var is_colliding_with_wall = false
@@ -133,13 +133,10 @@ func _on_HurtBox_hurt(damage, angle, knockback):
 func take_damage(amount: int) -> void:
 	hp -= amount
 	if hp <= 0:
-		die()
-
-func die() -> void:
-	queue_free()
+		print("Mort")
 
 func _show_end_menu():
-	get_tree().change_scene_to_file(end_menu_scene)
+	get_tree().change_scene_to_file(save_menu)
 
 func upgrade_fire_two_projectiles():
 	fire_two_projectiles = true

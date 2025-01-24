@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4i5i7qnvt6tw"]
+
+[ext_resource type="Texture2D" uid="uid://b7qcbopgl763n" path="res://scenes/cutscene/image.png" id="1_7tcxf"]
+[ext_resource type="Texture2D" uid="uid://bbk735648hbwl" path="res://scenes/cutscene/cut1/GodotAnimParchemin.png" id="2_5icc0"]
+[ext_resource type="FontFile" uid="uid://cto15t1jm6yi4" path="res://scenes/cutscene/cut1/Pixeled.ttf" id="3_mrt0c"]
+[ext_resource type="Script" path="res://scenes/richtext.gd" id="4_5k2ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rut3f"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu7d0"]
+
+[node name="cut_scene2" type="Node2D"]
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(1288, 208)
+scale = Vector2(1.66704, 1.7088)
+texture = ExtResource("1_7tcxf")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+offset_left = 640.0
+offset_top = 736.0
+offset_right = 1752.0
+offset_bottom = 944.0
+
+[node name="Label" type="Label" parent="UI/Panel"]
+layout_mode = 0
+offset_left = -88.0
+offset_top = -152.0
+offset_right = 768.0
+offset_bottom = -48.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 1128.0
+offset_bottom = 236.0
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Panel/VBoxContainer"]
+position = Vector2(536, 136)
+scale = Vector2(5.52061, 3.81541)
+texture = ExtResource("2_5icc0")
+hframes = 6
+frame = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 236.57)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_mrt0c")
+theme_override_font_sizes/normal_font_size = 43
+theme_override_styles/fill = SubResource("StyleBoxFlat_rut3f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uu7d0")
+text = "Merde, les condés !"
+scroll_active = false
+script = ExtResource("4_5k2ng")
