@@ -1,6 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0kv3rgt6ky0c"]
+[gd_scene load_steps=3 format=3 uid="uid://c2ans8n55xqvg"]
 
-[ext_resource type="Script" path="res://scripts/border_area.gd" id="1_pgojw"]
+[sub_resource type="GDScript" id="GDScript_y0bl7"]
+script/source = "extends Area2D
+
+@onready var collision_shape = $CollisionShape2D
+@onready var player = get_tree().get_first_node_in_group(\"player\")
+
+func _ready():
+	if collision_shape:
+		collision_shape.disabled = false
+	player = get_node(\"/root/wave1/Player\")
+	if not is_connected(\"body_entered\", Callable(self, \"_on_body_entered\")):
+		connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+	if not is_connected(\"body_exited\", Callable(self, \"_on_body_exited\")):
+		connect(\"body_exited\", Callable(self, \"_on_body_exited\"))
+
+func _on_body_entered(body):
+	print(\"Body entered: %s\" % body.name)
+	if body.name == \"Player\" and player:
+		print(\"Player entered collision area\")
+		player.is_colliding_with_wall = true
+
+func _on_body_exited(body):
+	print(\"Body exited: %s\" % body.name)
+	if body.name == \"Player\" and player:
+		print(\"Player exited collision area\")
+		player.is_colliding_with_wall = false
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7so0"]
 radius = 21.0
@@ -8,7 +34,7 @@ height = 86.0
 
 [node name="BorderArea" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_pgojw")
+script = SubResource("GDScript_y0bl7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 7)

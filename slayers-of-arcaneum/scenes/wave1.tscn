@@ -1797,7 +1797,7 @@ tile_set = SubResource("TileSet_tqer8")
 tile_set = SubResource("TileSet_l12iy")
 
 [node name="murs" parent="." instance=ExtResource("12_rruy7")]
-position = Vector2(-4183, -4315)
+position = Vector2(-4535, -4344)
 
 [node name="Player" parent="." instance=ExtResource("2_p1tn0")]
 light_mask = 4096

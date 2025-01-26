@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Ghost
 
-@export var speed = 130
+@export var speed = 295
 @export var hp = 89
 @export var damage = 50
 @onready var health_bar: ProgressBar = $ProgressBar
@@ -26,7 +26,7 @@ func take_damage(damage):
 		health_bar.value = hp
 	print("Damage taken: ", damage, " | Remaining HP: ", hp)
 	if hp <= 0:
-		emit_signal("died")
+		emit_signal("died", 200)
 		die()
 
 func die():

@@ -1,12 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var speed = 200
-@onready var fire_rate = 0.5
-@onready var projectile_damage = 10
-@onready var projectile_speed = 400
-@onready var max_hp = 100
-var hp = 100
+@onready var speed = PlayerStats.speed
+@onready var fire_rate = PlayerStats.projectile_fire_rate
+@onready var projectile_damage = PlayerStats.projectile_damage
+@onready var projectile_speed = PlayerStats.projectile_speed
+@onready var max_hp = PlayerStats.max_hp
+var hp = PlayerStats.hp
 @onready var projectile_scene = preload("res://scenes/projectile.tscn")
 @onready var shooting_point = $ShootingPoint
 @onready var hurt_box = $HurtBox
@@ -23,7 +23,7 @@ var end_menu_delay = 1.2
 @onready var end_menu_timer = Timer.new()
 @export var end_menu_scene = "res://scripts/end_menu.tscn"
 
-@onready var border_area = $BorderArea
+
 var is_colliding_with_wall = false
 
 func _ready():
@@ -38,9 +38,6 @@ func _ready():
 	end_menu_timer.one_shot = true
 	end_menu_timer.connect("timeout", Callable(self, "_show_end_menu"))
 	add_child(end_menu_timer)
-	if border_area:
-		border_area.connect("body_entered", Callable(self, "_on_border_area_entered"))
-		border_area.connect("body_exited", Callable(self, "_on_border_area_exited"))
 
 var move_velocity = Vector2.ZERO
 
@@ -132,44 +129,9 @@ func _on_HurtBox_hurt(damage, angle, knockback):
 
 func take_damage(amount: int) -> void:
 	hp -= amount
-	if hp <= 0:
-		die()
-
-func die() -> void:
-	queue_free()
 
 func _show_end_menu():
 	get_tree().change_scene_to_file(end_menu_scene)
 
-func upgrade_fire_two_projectiles():
-	fire_two_projectiles = true
-
-func upgrade_projectile_damage():
-	projectile_damage += 5
-
-func upgrade_speed():
-	speed += 50
-
 func _on_quit_timeout():
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")
-
-func _on_border_area_entered(body):
-	print("Border area entered by: %s" % body.name)
-	if body.is_in_group("player"):
-		print("Player entered the border area")
-		move_velocity = Vector2.ZERO
-		is_colliding_with_wall = true
-
-func _on_border_area_exited(body):
-	print("Border area exited by: %s" % body.name)
-	if body.is_in_group("player"):
-		print("Player exited the border area")
-		is_colliding_with_wall = false
-
-func _on_body_entered(body):
-	if body.name == "murs":
-		is_colliding_with_wall = true
-
-func _on_body_exited(body):
-	if body.name == "murs":
-		is_colliding_with_wall = false

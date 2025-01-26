@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck3vwa038omyp"]
+[gd_scene load_steps=3 format=3 uid="uid://ck3vwa038omyp"]
 
 [ext_resource type="Script" path="res://end_menu.gd" id="1_ko4ur"]
+[ext_resource type="Texture2D" uid="uid://cxfxrukuq6msb" path="res://FlouJeu.png" id="2_p2063"]
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
@@ -11,12 +12,30 @@ offset_right = 1959.0
 offset_bottom = 1070.0
 script = ExtResource("1_ko4ur")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
 offset_left = 66.0
 offset_top = 14.0
 offset_right = 1823.0
 offset_bottom = 86.0
+
+[node name="FlouJeu" type="Sprite2D" parent="TextureRect"]
+position = Vector2(817, 459)
+texture = ExtResource("2_p2063")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -33.0
+offset_right = 60.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 process_mode = 3
@@ -25,17 +44,35 @@ layout_mode = 2
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
-text = "RESTART"
+text = "Recommencer"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "QUIT"
+text = "Quitter"
 
 [node name="score_end" type="Label" parent="."]
-layout_mode = 2
-offset_left = 66.0
-offset_top = 84.0
-offset_right = 1823.0
-offset_bottom = 107.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -878.5
+offset_top = -23.0
+offset_right = 878.5
+grow_horizontal = 2
+grow_vertical = 0
 text = "Score :"
 horizontal_alignment = 1
+
+[node name="remerciment" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -108.0
+offset_bottom = 116.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 85
+text = "Merci d'avoir joué à Slayers Of Arcaneum !"
+horizontal_alignment = 1
+vertical_alignment = 1

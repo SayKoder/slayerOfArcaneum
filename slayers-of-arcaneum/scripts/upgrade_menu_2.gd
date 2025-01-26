@@ -1,20 +1,17 @@
 extends Control
 
 @onready var Acceleration = $HBoxContainer/AccelerationBtn as Button
-@onready var IncreaseDamage = $HBoxContainer/IncreaseDamageBtn as Button
-@onready var RegeneHealtPlayer = $HBoxContainer/RegeneHealtPlayerBtn as Button
-@export var next_scene = "res://scenes/wave2.tscn"
+@onready var IncreaseDamage = $HBoxContainer/DamageBtn as Button
+@onready var RegeneHealtPlayer = $HBoxContainer/RegenerationBtn as Button
+@export var next_scene2 = "res://scenes/wave3.tscn"
 
 func _ready():
-	if Acceleration:
-		Acceleration.connect("pressed", Callable(self, "_on_Acceleration_pressed"))
-		Acceleration.grab_focus()
-	if IncreaseDamage:
-		IncreaseDamage.connect("pressed", Callable(self, "_on_IncreaseDamage_pressed"))
-	if RegeneHealtPlayer:
-		RegeneHealtPlayer.connect("pressed", Callable(self, "_on_RegeneHealtPlayer_pressed"))
+	Acceleration.connect("pressed", Callable(self, "_on_acceleration_btn_pressed"))
+	IncreaseDamage.connect("pressed", Callable(self, "_on_damage_btn_pressed"))
+	RegeneHealtPlayer.connect("pressed", Callable(self, "_on_regeneration_btn_pressed"))
+	Acceleration.grab_focus()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("move_down"):
 		_focus_next_button()
 	elif Input.is_action_just_pressed("move_up"):
@@ -22,33 +19,30 @@ func _process(delta):
 	elif Input.is_action_just_pressed("menu_button"):
 		_activate_button()
 
-func _on_Acceleration_pressed():
+func _on_acceleration_btn_pressed():
 	PlayerStats.speed += 50
-	print("Upgraded speed")
-	_close_menu()
+	_close_menu2()
 
-func _on_IncreaseDamage_pressed():
+func _on_damage_btn_pressed():
 	PlayerStats.projectile_damage += 5
-	print("Upgraded projectile damage")
-	_close_menu()
+	_close_menu2()
 
-func _on_RegeneHealtPlayer_pressed():
+func _on_regeneration_btn_pressed():
 	PlayerStats.hp = min(PlayerStats.hp + 50, PlayerStats.max_hp)
-	print("Regenerated health")
-	_close_menu()
+	_close_menu2()
 
-func _close_menu():
+func _close_menu2():
 	get_tree().paused = false
 	queue_free()
-	get_tree().change_scene_to_file(next_scene)
+	get_tree().change_scene_to_file(next_scene2)
 
 func _activate_button():
 	if Acceleration.has_focus():
-		_on_Acceleration_pressed()
+		_on_acceleration_btn_pressed()
 	elif IncreaseDamage.has_focus():
-		_on_IncreaseDamage_pressed()
+		_on_damage_btn_pressed()
 	elif RegeneHealtPlayer.has_focus():
-		_on_RegeneHealtPlayer_pressed()
+		_on_regeneration_btn_pressed()
 
 func _focus_next_button():
 	if Acceleration.has_focus():

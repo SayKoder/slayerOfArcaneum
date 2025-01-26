@@ -1,6 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgpitxch3dpil"]
+[gd_scene load_steps=3 format=3 uid="uid://dqbqbaq46x6j8"]
 
-[ext_resource type="Script" path="res://scripts/rigide_body.gd" id="1_hce6u"]
+[sub_resource type="GDScript" id="GDScript_oxbmr"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tly7e"]
 radius = 69.0
@@ -8,7 +20,7 @@ height = 214.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2(-2, -6)
-script = ExtResource("1_hce6u")
+script = SubResource("GDScript_oxbmr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_tly7e")

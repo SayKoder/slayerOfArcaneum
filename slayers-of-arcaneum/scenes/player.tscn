@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://cw8pqd4b6accg" path="res://utility/hurt_box.tscn" id="7_mrusb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivq62"]
-radius = 21.0
-height = 86.0
+radius = 22.0
+height = 70.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggsbd"]
-radius = 20.0
-height = 88.0
+radius = 24.0
+height = 90.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q4kko"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fwtr"]
-bg_color = Color(0, 0.392049, 0.142343, 1)
+bg_color = Color(0.261609, 0.206301, 0.739644, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -161,7 +161,7 @@ texture = ExtResource("2_edh7v")
 hframes = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 7)
+position = Vector2(-8, 6)
 shape = SubResource("CapsuleShape2D_ivq62")
 debug_color = Color(0.636608, 0.526502, 0.00500791, 0.42)
 
@@ -169,7 +169,7 @@ debug_color = Color(0.636608, 0.526502, 0.00500791, 0.42)
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(-9, 6)
+position = Vector2(-8, 7)
 shape = SubResource("CapsuleShape2D_ggsbd")
 debug_color = Color(0.992794, 0, 0.246992, 0.42)
 

@@ -70,17 +70,5 @@ func _show_upgrade_menu():
 	get_tree().root.add_child(upgrade_menu_instance)
 	get_tree().current_scene.queue_free()
 
-func upgrade_speed():
-	player.speed += 50
-	print("Upgraded speed")
-
-func upgrade_projectile_damage():
-	player.projectile_damage += 5
-	print("Upgraded projectile damage")
-
-func regenerate_health():
-	player.hp = min(player.hp + 50, player.max_hp)
-	print("Regenerated health")
-
 func _on_quit_timeout():
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")

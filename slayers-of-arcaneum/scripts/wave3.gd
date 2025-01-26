@@ -5,6 +5,8 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var score_label = $UI/ScoreLabel
+@onready var upgrade_menu_scene2 = preload("res://scenes/upgrade_menu_2.tscn")
+@onready var wave3_scene = preload("res://scenes/wave3.tscn")
 @onready var player_stats_ui = preload("res://scenes/player_stats_ui.tscn")
 var quit_delay = 2.0
 signal wave_completed
@@ -33,14 +35,13 @@ func _process(delta):
 		score_label.text = "Score: %d" % GameStats.score
 
 func _spawn_mob():
-	if mobs_spawned < max_mobs:
-		var mob = preload("res://scenes/ghost.tscn").instantiate()
-		mob.position = Vector2(randi() % 800, randi() % 600)  # Random position within 800x600 area
-		add_child(mob)
-		mob.connect("died", Callable(self, "_on_mob_died"))
-		mobs_spawned += 1
-		if mobs_spawned == max_mobs:
-			spawn_timer.stop()
+	var mob_types = ["res://scenes/mob_skeleton.tscn", "res://scenes/shadow.tscn", "res://scenes/ghost.tscn"]
+	var mob_scene = load(mob_types[randi() % mob_types.size()])
+	var mob = mob_scene.instantiate()
+	mob.position = Vector2(randi() % 800, randi() % 600)
+	add_child(mob)
+	mob.connect("died", Callable(self, "_on_mob_died"))
+	mobs_spawned += 1
 
 func _start_wave():
 	mobs_spawned = 0
@@ -50,22 +51,16 @@ func _start_wave():
 func _on_mob_died(points):
 	GameStats.score += points
 	score_label.text = "Score: %d" % GameStats.score
-	mobs_spawned -= 1
 	mobs_killed += 1
-	if mobs_spawned == 0 and mobs_killed >= max_mobs:
-		emit_signal("wave_completed")
 
-func upgrade_speed():
-	player.speed += 50
-	get_tree().paused = false
+func _on_wave_completed():
+	_show_upgrade_menu()
+	spawn_timer.start()
 
-func upgrade_projectile_damage():
-	player.projectile_damage += 5
-	get_tree().paused = false
-
-func regenerate_health():
-	player.hp = min(player.hp + 50, player.max_hp)
-	get_tree().paused = false
+func _show_upgrade_menu():
+	var upgrade_menu_instance2 = upgrade_menu_scene2.instantiate()
+	get_tree().root.add_child(upgrade_menu_instance2)
+	queue_free()
 
 func _on_quit_timeout():
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")

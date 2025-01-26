@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var score_label = $UI/ScoreLabel
-@onready var upgrade_menu_scene2 = preload("res://scenes/upgrade_menu2.tscn")
+@onready var upgrade_menu_scene2 = preload("res://scenes/upgrade_menu_2.tscn")
 @onready var player_stats_ui = preload("res://scenes/player_stats_ui.tscn")
 var quit_delay = 2.0
 signal wave_completed
@@ -51,30 +51,18 @@ func _start_wave():
 func _on_mob_died(points):
 	GameStats.score += points
 	score_label.text = "Score: %d" % GameStats.score
+	mobs_spawned -= 1
 	mobs_killed += 1
-	if mobs_killed >= max_mobs:
+	if mobs_spawned == 0 and mobs_killed >= max_mobs:
 		emit_signal("wave_completed")
 
 func _on_wave_completed():
 	_show_upgrade_menu()
-	queue_free()
 
 func _show_upgrade_menu():
 	var upgrade_menu_instance2 = upgrade_menu_scene2.instantiate()
 	get_tree().root.add_child(upgrade_menu_instance2)
-	get_tree().paused = true
-
-func upgrade_speed():
-	player.speed += 50
-	get_tree().paused = false
-
-func upgrade_projectile_damage():
-	player.projectile_damage += 5
-	get_tree().paused = false
-
-func regenerate_health():
-	player.hp = min(player.hp + 50, player.max_hp)
-	get_tree().paused = false
+	queue_free()
 
 func _on_quit_timeout():
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")

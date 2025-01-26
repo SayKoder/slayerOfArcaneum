@@ -8,24 +8,15 @@ extends Control
 var game_stats
 
 func _ready():
-	# Connect button signals
 	Restart.pressed.connect(on_restart_pressed)
 	Quit.pressed.connect(on_quit_pressed)
-
-	# Set initial focus on the Restart button
 	Restart.grab_focus()
-
-	# Get the GameStats node
 	game_stats = get_node("/root/GameStats")
-
-	# Update the score display
 	update_score_display()
 
 func _process(delta):
-	# Update the score display
 	update_score_display()
 
-	# Handle input for navigating buttons
 	if Input.is_action_just_pressed("move_down"):
 		_focus_next_button()
 	elif Input.is_action_just_pressed("move_up"):
@@ -57,6 +48,7 @@ func _focus_previous_button() -> void:
 
 func on_restart_pressed() -> void:
 	game_stats.reset()
+	PlayerStats.reset()
 	get_tree().change_scene_to_file(level)
 
 func on_quit_pressed() -> void:
