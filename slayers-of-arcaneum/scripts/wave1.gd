@@ -30,8 +30,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("QuitJeu"):
 		get_tree().create_timer(quit_delay).connect("timeout", Callable(self, "_on_quit_timeout"))
-	if score_label:
-		score_label.text = "Score: %d" % GameStats.score
+		
+	score_label.text = "Score: %d" % GameStats.score
 
 	if mobs_spawned == 0 and get_tree().get_nodes_in_group("mobs").size() == 0 and mobs_killed >= 7:
 		emit_signal("wave_completed")
