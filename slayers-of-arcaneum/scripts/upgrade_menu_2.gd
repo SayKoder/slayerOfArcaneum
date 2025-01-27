@@ -1,8 +1,8 @@
 extends Control
 
-@onready var Acceleration = $HBoxContainer/AccelerationBtn as Button
-@onready var IncreaseDamage = $HBoxContainer/DamageBtn as Button
-@onready var RegeneHealtPlayer = $HBoxContainer/RegenerationBtn as Button
+@onready var Acceleration = $MarginContainer/HBoxContainer/AccelerationBtn as Button
+@onready var IncreaseDamage = $MarginContainer/HBoxContainer/DamageBtn as Button
+@onready var RegeneHealtPlayer = $MarginContainer/HBoxContainer/RegenerationBtn as Button
 @export var next_scene2 = "res://scenes/wave3.tscn"
 
 func _ready():

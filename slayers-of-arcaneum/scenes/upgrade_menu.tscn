@@ -299,10 +299,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = 19.0
-offset_right = 13.0
-offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_psw5e")
@@ -317,6 +313,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ww0cr")
 
+<<<<<<< HEAD
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
 root_node = NodePath("../..")
 libraries = {
@@ -388,6 +385,8 @@ position = Vector2(1904, 1016)
 scale = Vector2(8.12625, 7.91415)
 texture = ExtResource("3_pmeia")
 
+=======
+>>>>>>> d82ae67d5848857e1f03bfd17c565427e25414f9
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15

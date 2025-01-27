@@ -15,11 +15,11 @@ script = ExtResource("1_u1xrj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("2_l0yvd")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +31,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_q6yb1")
@@ -41,25 +41,25 @@ Amélioration"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 47
 
-[node name="RegenerationBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="RegenerationBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q6yb1")
 theme_override_font_sizes/font_size = 37
 text = "Régénération"
 
-[node name="AccelerationBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="AccelerationBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q6yb1")
 theme_override_font_sizes/font_size = 37
 text = "Accélération"
 
-[node name="DamageBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="DamageBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q6yb1")
 theme_override_font_sizes/font_size = 37

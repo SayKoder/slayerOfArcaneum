@@ -1,8 +1,8 @@
 extends Control
 
-@onready var Acceleration = $TextureRect/MarginContainer/HBoxContainer/AccelerationBtn/AccelerationBtn as Button
-@onready var IncreaseDamage = $TextureRect/MarginContainer/HBoxContainer/IncreaseDamageBtn/IncreaseDamageBtn as Button
-@onready var RegeneHealtPlayer = $TextureRect/MarginContainer/HBoxContainer/RegeneHealtPlayerBtn/RegeneHealtPlayerBtn as Button
+@onready var Acceleration = $MarginContainer/HBoxContainer/AccelerationBtn as Button
+@onready var IncreaseDamage = $MarginContainer/HBoxContainer/IncreaseDamageBtn as Button
+@onready var RegeneHealtPlayer = $MarginContainer/HBoxContainer/RegeneHealtPlayerBtn as Button
 @export var next_scene = "res://scenes/wave2.tscn"
 @onready var anim_background = $TextureRect/AnimationPlayer
 
