@@ -1,0 +1,321 @@
+[gd_scene load_steps=8 format=3 uid="uid://m6cnixkonkg8"]
+
+[ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="1_b5eki"]
+[ext_resource type="Texture2D" uid="uid://c0rynkchkae48" path="res://assets/AllTouches.png" id="1_py6ub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mabj"]
+bg_color = Color(0.63309, 0.541736, 0.236222, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.176471, 0.176471, 0.176471, 0.776471)
+shadow_size = 5
+shadow_offset = Vector2(15, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s32mf"]
+bg_color = Color(0.484191, 0.235743, 0.0852777, 1)
+draw_center = false
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.713726)
+shadow_offset = Vector2(15, 15)
+
+[sub_resource type="Animation" id="Animation_ftafc"]
+resource_name = "Instructions"
+length = 3.0
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 2, 1, 0, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/B0:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03, 0.4, 0.8, 1.17, 1.53, 1.9, 2.22, 2.59),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 6, 3, 6, 3, 6, 3, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/B1:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 4, 6, 4, 6, 4, 6, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/B2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 5, 6, 5, 6, 5, 6]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/B0:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0600001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/B1:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/B2:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.00999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_54hrf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/B0:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/B1:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/B2:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/B0:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/B1:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/B2:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6q1p"]
+_data = {
+"Instructions": SubResource("Animation_ftafc"),
+"RESET": SubResource("Animation_54hrf")
+}
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 64.0
+offset_right = 1344.0
+offset_bottom = 1024.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3mabj")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 32.0
+offset_right = 592.0
+offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("1_b5eki")
+theme_override_font_sizes/font_size = 14
+text = "Jouabilités (Commandes du jeu)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 328.0
+offset_right = 784.0
+offset_bottom = 456.0
+theme_override_fonts/font = ExtResource("1_b5eki")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
+text = "Utiliser le Joystick afin de vous déplacer sur la map"
+wrap_mode = 1
+
+[node name="TextEdit4" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 784.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("1_b5eki")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
+text = "Bienvenue sur le monde d'arcaneum, veuillez prendre en compte les commandes pour jouer au jeu et éliminer la terreurs qui a anéantis nos ancien !"
+wrap_mode = 1
+
+[node name="TextEdit2" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 504.0
+offset_right = 792.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("1_b5eki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
+text = "Utiliser le bouton B0 pour attaquer avec votre boule de feu et skipper les animations."
+wrap_mode = 1
+
+[node name="TextEdit3" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 696.0
+offset_right = 792.0
+offset_bottom = 864.0
+theme_override_fonts/font = ExtResource("1_b5eki")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
+text = "Utiliser le bouton B1 pour vous regénérer grâce à la vie des ennemis et skipper les animations."
+wrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i6q1p")
+}
+autoplay = "Instructions"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(677.375, 455.625)
+scale = Vector2(2.82778, 2.82778)
+texture = ExtResource("1_py6ub")
+flip_h = true
+hframes = 7
+
+[node name="B0" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(673.887, 647.117)
+scale = Vector2(2.80522, 2.80522)
+texture = ExtResource("1_py6ub")
+flip_h = true
+hframes = 7
+frame = 3
+
+[node name="B1" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(675.814, 837.86)
+scale = Vector2(2.74935, 2.74935)
+texture = ExtResource("1_py6ub")
+flip_h = true
+hframes = 7
+frame = 6
+
+[node name="B2" type="Sprite2D" parent="AnimationPlayer"]
+visible = false
+position = Vector2(673.964, 831.067)
+scale = Vector2(2.80298, 2.80298)
+texture = ExtResource("1_py6ub")
+flip_h = true
+hframes = 7
+frame = 5

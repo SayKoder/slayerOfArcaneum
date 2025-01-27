@@ -1,9 +1,289 @@
-[gd_scene load_steps=6 format=3 uid="uid://3j6on0dndgi1"]
+[gd_scene load_steps=11 format=3 uid="uid://3j6on0dndgi1"]
 
 [ext_resource type="Script" path="res://scripts/upgrade_menu.gd" id="1_psw5e"]
-[ext_resource type="Texture2D" uid="uid://cxfxrukuq6msb" path="res://FlouJeu.png" id="2_4fqjp"]
+[ext_resource type="Texture2D" uid="uid://dpq4s3fdimhi5" path="res://assets/upgradeStyle/BackUp.png" id="2_ww0cr"]
 [ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="3_p1xle"]
-[ext_resource type="Texture2D" uid="uid://cwieubghvd64u" path="res://Parchemin.png" id="4_xrtir"]
+[ext_resource type="Texture2D" uid="uid://naxkd8dx08ls" path="res://assets/upgradeStyle/upgrade100.png" id="3_pmeia"]
+[ext_resource type="StyleBox" uid="uid://br3u5lelolsb5" path="res://assets/button/upgrade_hover.tres" id="5_hwskj"]
+[ext_resource type="StyleBox" uid="uid://ca0jxej1grb4h" path="res://assets/button/upgrade.tres" id="6_qem82"]
+
+[sub_resource type="Animation" id="Animation_bh8y1"]
+resource_name = "UpBackground_Anilm"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/AnimationPlayer/Upgrade100:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.966667, 1.46667, 1.96667, 2.46667, 3),
+"transitions": PackedFloat32Array(2.92817, 0.170755, 2.92817, 0.170755, 2.92817, 0.170755, 2.92817),
+"update": 0,
+"values": [Vector2(224, 966.57), Vector2(224, 920.55), Vector2(224, 966.57), Vector2(224, 920.55), Vector2(224, 966.57), Vector2(224, 920.55), Vector2(224, 966.57)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/AnimationPlayer/Upgrade103:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.633333, 1.1, 1.63333, 2.1, 2.63333, 3.1),
+"transitions": PackedFloat32Array(3.86374, 0.153893, 3.86374, 0.153893, 3.86374, 0.153893, 3.86374),
+"update": 0,
+"values": [Vector2(8.00006, 192), Vector2(8, 80), Vector2(8.00006, 192), Vector2(8, 80), Vector2(8.00006, 192), Vector2(8, 80), Vector2(8.00006, 192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect/AnimationPlayer/Upgrade101:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(4.5948, 0.148651, 4.5948, 0.148651, 4.5948, 0.148651, 4.5948),
+"update": 0,
+"values": [Vector2(416, 768), Vector2(416, 668), Vector2(416, 768), Vector2(416, 668), Vector2(416, 768), Vector2(416, 668), Vector2(416, 768)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/AnimationPlayer/Upgrade107:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.166667, 0.7, 1.16667, 1.7, 2.2, 2.73333, 3.16667),
+"transitions": PackedFloat32Array(4.92458, 0.148651, 4.92458, 0.148651, 4.92458, 0.148651, 4.92458),
+"update": 0,
+"values": [Vector2(336, 432), Vector2(336, 332), Vector2(336, 432), Vector2(336, 332), Vector2(336, 432), Vector2(336, 332), Vector2(336, 432)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect/AnimationPlayer/Upgrade105:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.53333, 2, 2.53333, 3),
+"transitions": PackedFloat32Array(6.06287, 0.183011, 6.06287, 0.183011, 6.06287, 0.183011, 6.06287),
+"update": 0,
+"values": [Vector2(768, 976), Vector2(768, 876), Vector2(768, 976), Vector2(768, 876), Vector2(768, 976), Vector2(768, 876), Vector2(768, 976)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect/AnimationPlayer/Upgrade104:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.133333, 0.633333, 1.13333, 1.63333, 2.16667, 2.66667, 3.13333),
+"transitions": PackedFloat32Array(4.43829, 0.143587, 4.43829, 0.143587, 4.43829, 0.143587, 4.43829),
+"update": 0,
+"values": [Vector2(1144, 904), Vector2(1144, 834), Vector2(1144, 904), Vector2(1144, 834), Vector2(1144, 904), Vector2(1144, 834), Vector2(1144, 904)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect/AnimationPlayer/Upgrade109:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1, 1.53333, 2, 2.53333, 3),
+"transitions": PackedFloat32Array(5.65685, 0.129408, 5.65685, 0.129408, 5.65685, 0.129408, 5.65685),
+"update": 0,
+"values": [Vector2(984, 312), Vector2(984, 212), Vector2(984, 312), Vector2(984, 212), Vector2(984, 312), Vector2(984, 212), Vector2(984, 312)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect/AnimationPlayer/Upgrade102:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 0.633333, 1.1, 1.63333, 2.1, 2.63333, 3.1),
+"transitions": PackedFloat32Array(4.75683, 0.143587, 4.75683, 0.143587, 4.75683, 0.143587, 4.75683),
+"update": 0,
+"values": [Vector2(1480, 232), Vector2(1480, 202), Vector2(1480, 232), Vector2(1480, 202), Vector2(1480, 232), Vector2(1480, 202), Vector2(1480, 232)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect/AnimationPlayer/Upgrade106:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(4.75683, 0.196146, 4.75683, 0.196146, 4.75683, 0.196146, 4.75683),
+"update": 0,
+"values": [Vector2(1488, 720), Vector2(1488, 700), Vector2(1488, 720), Vector2(1488, 700), Vector2(1488, 720), Vector2(1488, 700), Vector2(1488, 720)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextureRect/AnimationPlayer/Upgrade110:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.133333, 0.633333, 1.13333, 1.63333, 2.13333, 2.63333, 3.13333),
+"transitions": PackedFloat32Array(4.75683, 0.116629, 4.75683, 0.116629, 4.75683, 0.116629, 4.75683),
+"update": 0,
+"values": [Vector2(1904, 1016), Vector2(1904, 976), Vector2(1904, 1016), Vector2(1904, 976), Vector2(1904, 1016), Vector2(1904, 976), Vector2(1904, 1016)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TextureRect/AnimationPlayer/Upgrade108:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(4.43828, 0.176777, 4.43828, 0.176777, 4.43828, 0.176777, 4.43828),
+"update": 0,
+"values": [Vector2(1880, 56.0001), Vector2(1880, -56), Vector2(1880, 56.0001), Vector2(1880, -56), Vector2(1880, 56.0001), Vector2(1880, -56), Vector2(1880, 56.0001)]
+}
+
+[sub_resource type="Animation" id="Animation_e6hd0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/AnimationPlayer/Upgrade100:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, 966.57)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/AnimationPlayer/Upgrade103:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.00006, 192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect/AnimationPlayer/Upgrade101:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(416, 768)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/AnimationPlayer/Upgrade107:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 432)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect/AnimationPlayer/Upgrade105:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(768, 976)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect/AnimationPlayer/Upgrade104:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1144, 904)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect/AnimationPlayer/Upgrade109:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(984, 312)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect/AnimationPlayer/Upgrade102:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1480, 232)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect/AnimationPlayer/Upgrade106:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1488, 720)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextureRect/AnimationPlayer/Upgrade110:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1904, 1016)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TextureRect/AnimationPlayer/Upgrade108:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1880, 56.0001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbvh5"]
+_data = {
+"RESET": SubResource("Animation_e6hd0"),
+"UpBackground_Anilm": SubResource("Animation_bh8y1")
+}
 
 [sub_resource type="Theme" id="Theme_il4o6"]
 default_base_scale = 1.37
@@ -28,15 +308,87 @@ grow_vertical = 2
 script = ExtResource("1_psw5e")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.493545, 0.493546, 0.493546, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_4fqjp")
+texture = ExtResource("2_ww0cr")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qbvh5")
+}
+
+[node name="Upgrade100" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(224, 966.57)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade101" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(416, 768)
+scale = Vector2(1.86, 1.86)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade108" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(1880, 56.0001)
+scale = Vector2(1.86, 1.86)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade109" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(984, 312)
+scale = Vector2(1.86, 1.86)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade102" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(1480, 232)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade105" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(768, 976)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade106" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(1488, 720)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade107" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(336, 432)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade103" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(8.00006, 192)
+scale = Vector2(1.97, 1.97)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade104" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(1144, 904)
+scale = Vector2(3.065, 2.985)
+texture = ExtResource("3_pmeia")
+
+[node name="Upgrade110" type="Sprite2D" parent="TextureRect/AnimationPlayer"]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(1904, 1016)
+scale = Vector2(8.12625, 7.91415)
+texture = ExtResource("3_pmeia")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +400,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme = SubResource("Theme_il4o6")
@@ -58,28 +410,36 @@ Amélioration"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 47
 
-[node name="RegeneHealtPlayerBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="RegeneHealtPlayerBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = ExtResource("5_hwskj")
+theme_override_styles/normal = ExtResource("6_qem82")
 text = "Régénération"
+icon = ExtResource("3_pmeia")
 
-[node name="IncreaseDamageBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="IncreaseDamageBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = ExtResource("5_hwskj")
+theme_override_styles/normal = ExtResource("6_qem82")
 text = "Dégats
 "
+icon = ExtResource("3_pmeia")
 
-[node name="AccelerationBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="AccelerationBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = ExtResource("5_hwskj")
+theme_override_styles/normal = ExtResource("6_qem82")
 text = "Accélération"
-icon = ExtResource("4_xrtir")
+icon = ExtResource("3_pmeia")

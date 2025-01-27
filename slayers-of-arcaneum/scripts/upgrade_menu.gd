@@ -4,8 +4,11 @@ extends Control
 @onready var IncreaseDamage = $TextureRect/MarginContainer/HBoxContainer/IncreaseDamageBtn/IncreaseDamageBtn as Button
 @onready var RegeneHealtPlayer = $TextureRect/MarginContainer/HBoxContainer/RegeneHealtPlayerBtn/RegeneHealtPlayerBtn as Button
 @export var next_scene = "res://scenes/wave2.tscn"
+@onready var anim_background = $TextureRect/AnimationPlayer
 
 func _ready():
+	if anim_background.has_animation("UpBackground_Anilm"):
+		anim_background.play("UpBackground_Anilm")
 	if Acceleration:
 		Acceleration.connect("pressed", Callable(self, "_on_Acceleration_pressed"))
 		Acceleration.grab_focus()

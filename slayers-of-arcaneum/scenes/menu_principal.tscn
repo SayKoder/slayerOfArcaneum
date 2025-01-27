@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg2vsmd0mwguv"]
+[gd_scene load_steps=7 format=3 uid="uid://cg2vsmd0mwguv"]
 
-[ext_resource type="Texture2D" uid="uid://bvpgen23a1hjh" path="res://assets/Texture/LogoJeu4.png" id="1_hkw7f"]
 [ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_v64rg"]
+[ext_resource type="Texture2D" uid="uid://d124kckg4oiok" path="res://assets/LogoJeu.png" id="2_w8d8d"]
+[ext_resource type="StyleBox" uid="uid://dv0y6yhkuuds4" path="res://assets/button/green_hover.tres" id="3_8hp07"]
+[ext_resource type="StyleBox" uid="uid://v52u7u3f3dm6" path="res://assets/button/green.tres" id="4_g6rcn"]
+[ext_resource type="StyleBox" uid="uid://c5bnng1u1xdkg" path="res://assets/button/red_hover.tres" id="5_hcpyn"]
+[ext_resource type="StyleBox" uid="uid://o5hh0tfsxm40" path="res://assets/button/red.tres" id="6_et4ph"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -18,31 +22,34 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -53.0
 offset_top = -4.0
-offset_right = 125.0
+offset_right = 178.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hkw7f")
+texture = ExtResource("2_w8d8d")
 stretch_mode = 2
 
 [node name="StartBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 572.0
-offset_top = 700.0
-offset_right = 908.0
-offset_bottom = 777.0
+offset_left = 480.0
+offset_top = 816.0
+offset_right = 816.0
+offset_bottom = 893.0
 theme_override_font_sizes/font_size = 50
-text = "demarrer"
+theme_override_styles/focus = ExtResource("3_8hp07")
+theme_override_styles/normal = ExtResource("4_g6rcn")
+text = "Démarrer"
 
 [node name="QuitBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1162.0
-offset_top = 701.0
-offset_right = 1512.0
-offset_bottom = 778.0
+offset_left = 1070.0
+offset_top = 817.0
+offset_right = 1420.0
+offset_bottom = 894.0
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("5_hcpyn")
+theme_override_styles/normal = ExtResource("6_et4ph")
 text = "Quitter"
 
 [connection signal="button_down" from="StartBtn" to="." method="_on_start_btn_button_down"]
