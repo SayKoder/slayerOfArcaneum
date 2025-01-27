@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck3vwa038omyp"]
+[gd_scene load_steps=4 format=3 uid="uid://ck3vwa038omyp"]
 
 [ext_resource type="Script" path="res://end_menu.gd" id="1_ko4ur"]
 [ext_resource type="Texture2D" uid="uid://cxfxrukuq6msb" path="res://FlouJeu.png" id="2_p2063"]
+[ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="3_egnyu"]
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
@@ -40,14 +41,19 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 process_mode = 3
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_egnyu")
+theme_override_font_sizes/font_size = 35
 action_mode = 0
 text = "Recommencer"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_egnyu")
+theme_override_font_sizes/font_size = 35
 text = "Quitter"
 
 [node name="score_end" type="Label" parent="."]
@@ -72,7 +78,8 @@ anchor_right = 1.0
 offset_right = -108.0
 offset_bottom = 116.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 85
-text = "Merci d'avoir joué à Slayers Of Arcaneum !"
+theme_override_fonts/font = ExtResource("3_egnyu")
+theme_override_font_sizes/font_size = 45
+text = "MERCI D'AVOIR JOUER A SLAYER  OF ARCANEUM"
 horizontal_alignment = 1
 vertical_alignment = 1
