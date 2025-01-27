@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3tqgsnw3mujr" path="res://scenes/player_stats_ui.tscn" id="2_no6aa"]
 [ext_resource type="Texture2D" uid="uid://s3i8pp43rmbj" path="res://assets/Texture/TX Tileset Grass.png" id="3_vdhlj"]
 [ext_resource type="Texture2D" uid="uid://elpv6ool53no" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Tileset Stone Ground.png" id="4_ip4ae"]
-[ext_resource type="Texture2D" uid="uid://cw8h0ex5an848" path="res://assets/Textures_and_tilesets/Forest BETA V2 (1)/Water Tileset.png" id="4_nyoqo"]
+[ext_resource type="Texture2D" uid="uid://cw8h0ex5an848" path="res://scenes/Water Tileset.png" id="4_nyoqo"]
 [ext_resource type="Texture2D" uid="uid://crnfdm5swhqol" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Plant.png" id="5_umudv"]
 [ext_resource type="Texture2D" uid="uid://ici3cyywo3yj" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Player.png" id="6_gvckq"]
 [ext_resource type="Texture2D" uid="uid://br200jki1x07d" path="res://assets/Textures_and_tilesets/Pixel Art Top Down - Basic/Texture/TX Props.png" id="7_8qy3x"]

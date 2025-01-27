@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://3j6on0dndgi1"]
+[gd_scene load_steps=6 format=3 uid="uid://3j6on0dndgi1"]
 
 [ext_resource type="Script" path="res://scripts/upgrade_menu.gd" id="1_psw5e"]
 [ext_resource type="Texture2D" uid="uid://cxfxrukuq6msb" path="res://FlouJeu.png" id="2_4fqjp"]
-[ext_resource type="FontFile" path="res://Pixeled.ttf" id="3_p1xle"]
+[ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="3_p1xle"]
+[ext_resource type="Texture2D" uid="uid://cwieubghvd64u" path="res://Parchemin.png" id="4_xrtir"]
 
 [sub_resource type="Theme" id="Theme_il4o6"]
 default_base_scale = 1.37
@@ -51,7 +52,7 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 size_flags_vertical = 0
 theme = SubResource("Theme_il4o6")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 80
 text = "Choisis ton 
 Amélioration"
 horizontal_alignment = 1
@@ -65,16 +66,20 @@ theme_override_constants/separation = 47
 
 [node name="RegeneHealtPlayerBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 34
 text = "Régénération"
 
 [node name="IncreaseDamageBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 34
-text = "dégâts
+text = "Dégats
 "
 
 [node name="AccelerationBtn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 34
 text = "Accélération"
+icon = ExtResource("4_xrtir")
