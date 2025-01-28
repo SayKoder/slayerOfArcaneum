@@ -1,10 +1,10 @@
 extends Control
 
 @onready var Acceleration = $MarginContainer/HBoxContainer/AccelerationBtn as Button
-@onready var IncreaseDamage = $MarginContainer/HBoxContainer/IncreaseDamageBtn as Button
-@onready var RegeneHealtPlayer = $MarginContainer/HBoxContainer/RegeneHealtPlayerBtn as Button
+@onready var IncreaseDamage = $MarginContainer/HBoxContainer/DamageBtn as Button
+@onready var RegeneHealtPlayer = $MarginContainer/HBoxContainer/RegenerationBtn as Button
 @export var next_scene = "res://scenes/wave2.tscn"
-@onready var anim_background = $TextureRect/AnimationPlayer
+@onready var anim_background = $UpBackground_Anilm
 
 func _ready():
 	if anim_background.has_animation("UpBackground_Anilm"):

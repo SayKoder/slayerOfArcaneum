@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3tqgsnw3mujr"]
+[gd_scene load_steps=6 format=3 uid="uid://b3tqgsnw3mujr"]
 
 [ext_resource type="Script" path="res://scripts/player_stats_ui.gd" id="1_rjcc1"]
+[ext_resource type="Texture2D" uid="uid://blvn1bu70ktqi" path="res://assets/Texture/heart.png" id="2_p8uh5"]
+[ext_resource type="Texture2D" uid="uid://djj5jvmkq27ru" path="res://assets/Texture/damage.png" id="2_y44q6"]
+[ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="3_q1dxv"]
+[ext_resource type="Texture2D" uid="uid://benmfldrkw6pp" path="res://assets/Texture/speed.png" id="3_yophi"]
 
 [node name="PlayerStatsUI" type="Control"]
 layout_mode = 3
@@ -12,27 +16,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rjcc1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 217.0
-offset_top = 23.0
-offset_right = 1788.0
-offset_bottom = 887.0
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 50
-
-[node name="HealthLabel" type="Label" parent="HBoxContainer"]
-layout_mode = 2
+layout_mode = 1
+offset_left = 165.0
+offset_top = 33.0
+offset_right = 421.0
+offset_bottom = 94.0
+theme_override_constants/separation = 0
 
 [node name="PlayTimeLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_p8uh5")
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_y44q6")
+
 [node name="DamageLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_yophi")
+
 [node name="SpeedLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1dxv")
+theme_override_font_sizes/font_size = 20

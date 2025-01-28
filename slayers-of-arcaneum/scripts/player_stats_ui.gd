@@ -19,9 +19,10 @@ func _ready():
 
 func _process(delta):
 	if player:
-		speed_label.text = "Speed: %d" % player.speed
+		
+		speed_label.text = "%d" % player.speed
 
 		playtime += delta
 		if playtime_label:
 			playtime_label.text = "Playtime: %.2f" % playtime
-		damage_label.text = "Projectile Damage: %d" % player.projectile_damage
+		damage_label.text = "%d" % player.projectile_damage
