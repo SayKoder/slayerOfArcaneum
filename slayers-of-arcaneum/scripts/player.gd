@@ -23,8 +23,12 @@ var end_menu_delay = 1.2
 @onready var end_menu_timer = Timer.new()
 @export var end_menu_scene = "res://scripts/end_menu.tscn"
 
-
 var is_colliding_with_wall = false
+var can_dash = PlayerStats.can_dash
+var dash_distance = 100  # 3 cm in pixels
+var is_dashing = false
+var dash_cooldown = 5.0  # 5 seconds cooldown
+var dash_cooldown_timer = 0.0
 
 func _ready():
 	add_to_group("player")
@@ -54,6 +58,10 @@ func _process(delta):
 			move_velocity.y -= 1
 		if move_velocity.length() > 0:
 			move_velocity = move_velocity.normalized() * speed
+	if dash_cooldown_timer > 0:
+		dash_cooldown_timer -= delta
+	if Input.is_action_just_pressed("dash") and can_dash and dash_cooldown_timer <= 0:
+		dash()
 	velocity = move_velocity
 	move_and_slide()
 	if move_velocity != Vector2.ZERO:
@@ -91,6 +99,12 @@ func _process(delta):
 		if fire_two_projectiles:
 			fire_projectile()
 		fire_timer.start()
+
+func dash():
+	var dash_vector = move_velocity.normalized() * dash_distance
+	global_position += dash_vector
+	dash_cooldown_timer = dash_cooldown
+	print("Dashed 3 cm")
 
 func fire_projectile():
 	var projectile_instance = projectile_scene.instantiate()

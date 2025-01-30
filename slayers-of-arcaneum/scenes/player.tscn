@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cw8pqd4b6accg" path="res://utility/hurt_box.tscn" id="7_mrusb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivq62"]
-radius = 22.0
-height = 70.0
+radius = 26.0
+height = 64.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggsbd"]
-radius = 24.0
+radius = 28.0
 height = 90.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q4kko"]

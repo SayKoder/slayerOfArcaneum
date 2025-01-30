@@ -1,28 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck3vwa038omyp"]
+[gd_scene load_steps=3 format=3 uid="uid://ck3vwa038omyp"]
 
 [ext_resource type="Script" path="res://end_menu.gd" id="1_ko4ur"]
-[ext_resource type="Texture2D" uid="uid://cxfxrukuq6msb" path="res://FlouJeu.png" id="2_p2063"]
 [ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="3_egnyu"]
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 77.0
-offset_top = 68.0
-offset_right = 1959.0
-offset_bottom = 1070.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ko4ur")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-offset_left = 66.0
-offset_top = 14.0
-offset_right = 1823.0
-offset_bottom = 86.0
-
-[node name="FlouJeu" type="Sprite2D" parent="TextureRect"]
-position = Vector2(817, 459)
-texture = ExtResource("2_p2063")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -75,8 +72,10 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -108.0
-offset_bottom = 116.0
+offset_left = 51.0
+offset_top = 63.0
+offset_right = -57.0
+offset_bottom = 189.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_egnyu")
 theme_override_font_sizes/font_size = 45

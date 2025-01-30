@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://qay3ju6u1iln"]
+[gd_scene load_steps=63 format=3 uid="uid://qay3ju6u1iln"]
 
 [ext_resource type="Script" path="res://scripts/shadow.gd" id="1_jloiq"]
 [ext_resource type="Texture2D" uid="uid://yey2orpt4dke" path="res://assets/Ennemies/Shadow/NightBorne.png" id="1_rt6nw"]
@@ -226,19 +226,19 @@ region = Rect2(400, 80, 80, 80)
 [sub_resource type="SpriteFrames" id="SpriteFrames_3xjt0"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_2bx6c")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_m61j7")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_rngu5")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_c8ths")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_2jdvl")
 }, {
 "duration": 1.0,
@@ -433,18 +433,20 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrbwn"]
+radius = 47.676
+
 [node name="Shadow" type="CharacterBody2D" groups=["mobs"]]
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_jloiq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mobs"]]
 position = Vector2(-7, -15)
 scale = Vector2(1.75, 1.875)
 sprite_frames = SubResource("SpriteFrames_3xjt0")
-animation = &"running"
+animation = &"attack"
 autoplay = "running"
-frame_progress = 0.6567
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.5, 5.5)
@@ -462,3 +464,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_p4p7h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_404us")
 max_value = 20.0
 value = 15.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9, 5)
+shape = SubResource("CircleShape2D_xrbwn")

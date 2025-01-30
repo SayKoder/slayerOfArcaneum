@@ -1,10 +1,13 @@
 extends Control
 
-@onready var first_lvl = "res://scenes/wave1.tscn"
+
+@onready var first_lvl = "res://scenes/instructions.tscn"
 @onready var start_button = $StartBtn as Button
 @onready var quit_button = $QuitBtn as Button
 var quit_delay = 2.0
 func _ready():
+	MusicManager.change_music("wave1")
+
 	start_button.connect("pressed", Callable(self, "_on_start_button_pressed"))
 	quit_button.connect("pressed", Callable(self, "_on_quit_button_pressed"))
 

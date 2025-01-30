@@ -47,7 +47,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 47
 
-[node name="RegenerationBtn" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="BouncingBulletBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_q6yb1")
 theme_override_font_sizes/font_size = 37

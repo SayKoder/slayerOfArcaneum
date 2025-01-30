@@ -37,8 +37,8 @@ offset_top = 816.0
 offset_right = 816.0
 offset_bottom = 893.0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("3_8hp07")
-theme_override_styles/normal = ExtResource("4_g6rcn")
+theme_override_styles/focus = ExtResource("4_g6rcn")
+theme_override_styles/normal = ExtResource("3_8hp07")
 text = "Démarrer"
 
 [node name="QuitBtn" type="Button" parent="."]
@@ -48,8 +48,8 @@ offset_top = 817.0
 offset_right = 1420.0
 offset_bottom = 894.0
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = ExtResource("5_hcpyn")
-theme_override_styles/normal = ExtResource("6_et4ph")
+theme_override_styles/focus = ExtResource("6_et4ph")
+theme_override_styles/normal = ExtResource("5_hcpyn")
 text = "Quitter"
 
 [connection signal="button_down" from="StartBtn" to="." method="_on_start_btn_button_down"]

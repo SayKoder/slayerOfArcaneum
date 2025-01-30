@@ -132,7 +132,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("MarginContainer/HBoxContainer/RegenerationBtn:theme_override_styles/focus:bg_color")
+tracks/10/path = NodePath("MarginContainer/HBoxContainer/DashBtn:theme_override_styles/focus:bg_color")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -293,7 +293,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("MarginContainer/HBoxContainer/RegenerationBtn:theme_override_styles/focus:bg_color")
+tracks/10/path = NodePath("MarginContainer/HBoxContainer/DashBtn:theme_override_styles/focus:bg_color")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -429,13 +429,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 47
 
-[node name="RegenerationBtn" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="DashBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p1xle")
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = ExtResource("4_qg5j2")
 theme_override_styles/normal = ExtResource("5_ohq22")
-text = "Régénération"
+text = "DASH"
 icon = ExtResource("6_ch7ot")
 
 [node name="AccelerationBtn" type="Button" parent="MarginContainer/HBoxContainer"]

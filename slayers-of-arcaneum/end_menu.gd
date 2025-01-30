@@ -52,5 +52,5 @@ func on_restart_pressed() -> void:
 	get_tree().change_scene_to_file(level)
 
 func on_quit_pressed() -> void:
-	game_stats.save_score()
+
 	JavaScriptBridge.eval("window.location.href='http://localhost:3000'")

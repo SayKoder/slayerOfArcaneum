@@ -24,26 +24,46 @@ offset_right = 421.0
 offset_bottom = 94.0
 theme_override_constants/separation = 0
 
-[node name="PlayTimeLabel" type="Label" parent="HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_right = 40
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_p8uh5")
 
 [node name="HealthLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 40
+
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_y44q6")
 
+[node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 9
+
 [node name="DamageLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q1dxv")
+theme_override_font_sizes/font_size = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 45
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_yophi")
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
 
 [node name="SpeedLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2

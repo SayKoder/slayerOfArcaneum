@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://m6cnixkonkg8"]
+[gd_scene load_steps=12 format=3 uid="uid://xm7hn0r73kk"]
 
 [ext_resource type="FontFile" uid="uid://7l15wx4m43hk" path="res://Pixeled.ttf" id="1_b5eki"]
 [ext_resource type="Texture2D" uid="uid://c0rynkchkae48" path="res://assets/AllTouches.png" id="1_py6ub"]
+[ext_resource type="Script" path="res://scripts/instructions.gd" id="1_t5cej"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mabj"]
 bg_color = Color(0.63309, 0.541736, 0.236222, 1)
@@ -206,6 +207,56 @@ _data = {
 "RESET": SubResource("Animation_54hrf")
 }
 
+[sub_resource type="Animation" id="Animation_qrxq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_a5h86"]
+resource_name = "lancer_jeu"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.37, 0.77, 1.14, 1.5, 1.87, 2.19, 2.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 6, 3, 6, 3, 6, 3, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jesru"]
+_data = {
+"RESET": SubResource("Animation_qrxq5"),
+"lancer_jeu": SubResource("Animation_a5h86")
+}
+
 [node name="Instructions" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -213,6 +264,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t5cej")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -224,24 +285,24 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3mabj")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 32.0
-offset_right = 592.0
+offset_left = 58.0
+offset_top = 19.0
+offset_right = 790.0
 offset_bottom = 104.0
 theme_override_fonts/font = ExtResource("1_b5eki")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 26
 text = "Jouabilités (Commandes du jeu)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextEdit" type="TextEdit" parent="Panel"]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 328.0
-offset_right = 784.0
-offset_bottom = 456.0
+offset_left = 304.0
+offset_top = 331.0
+offset_right = 744.0
+offset_bottom = 459.0
 theme_override_fonts/font = ExtResource("1_b5eki")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
 text = "Utiliser le Joystick afin de vous déplacer sur la map"
 wrap_mode = 1
@@ -250,34 +311,34 @@ wrap_mode = 1
 layout_mode = 0
 offset_left = 40.0
 offset_top = 120.0
-offset_right = 784.0
-offset_bottom = 280.0
+offset_right = 831.0
+offset_bottom = 305.0
 theme_override_fonts/font = ExtResource("1_b5eki")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
 text = "Bienvenue sur le monde d'arcaneum, veuillez prendre en compte les commandes pour jouer au jeu et éliminer la terreurs qui a anéantis nos ancien !"
 wrap_mode = 1
 
 [node name="TextEdit2" type="TextEdit" parent="Panel"]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 504.0
-offset_right = 792.0
-offset_bottom = 648.0
+offset_left = 304.0
+offset_top = 496.0
+offset_right = 799.0
+offset_bottom = 675.0
 theme_override_fonts/font = ExtResource("1_b5eki")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
-text = "Utiliser le bouton B0 pour attaquer avec votre boule de feu et skipper les animations."
+text = "Utiliser le bouton en bas à gauche pour attaquer avec votre boule de feu et skipper les animations."
 wrap_mode = 1
 
 [node name="TextEdit3" type="TextEdit" parent="Panel"]
 layout_mode = 0
-offset_left = 336.0
+offset_left = 302.0
 offset_top = 696.0
-offset_right = 792.0
-offset_bottom = 864.0
+offset_right = 810.0
+offset_bottom = 891.0
 theme_override_fonts/font = ExtResource("1_b5eki")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_s32mf")
 text = "Utiliser le bouton B1 pour vous regénérer grâce à la vie des ennemis et skipper les animations."
 wrap_mode = 1
@@ -319,3 +380,17 @@ texture = ExtResource("1_py6ub")
 flip_h = true
 hframes = 7
 frame = 5
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("B0Spawn")
+libraries = {
+"": SubResource("AnimationLibrary_jesru")
+}
+autoplay = "lancer_jeu"
+
+[node name="B0Spawn" type="Sprite2D" parent="AnimationPlayer2"]
+position = Vector2(1671, 911)
+scale = Vector2(2.80522, 2.80522)
+texture = ExtResource("1_py6ub")
+hframes = 7
+frame = 6
